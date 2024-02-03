@@ -20,6 +20,7 @@
 \usepackage{caption}
 \usepackage{fancyhdr}
 \usepackage{booktabs}
+\usepackage{hyperref}
 \usepackage{tabu}
 \usepackage{algorithm}
 \usepackage{pdfpages}
@@ -151,7 +152,7 @@ In this paper, we seek to mathematically model the flow of momentum across a ten
     \setlength{\parsep}{0ex} %段落间距
     \setlength{\topsep}{2ex} %列表到上下文的垂直距离
     \setlength{\itemsep}{1ex} %条目间距
-    \item To capture the flow of match in real-time, we apply a Sliding Window machanism to a set of extracted features; these features are passed into the core Progressive Logisic Model that use the set of principal factors to predict the winning chance of the point; due to the real-time progression of the competition, a Forgetting Factor is added to dynamically update this model to reflect the most recent match status. 
+    \item To capture the flow of match in real-time, we constructed the CourtSense model as a sub-model of DTMA. The model starts by applying a Sliding Window machanism to a set of extracted features; these features are passed into the core Progressive Logisic Model that use the set of principal factors to predict the winning chance of the point; due to the real-time progression of the competition, a Forgetting Factor is added to dynamically update this model to reflect the most recent match status. 
     \item The mixture of the two drones is given and the extreme fire events is considered;
     \item Based on the verification model simulated by Poisson process and the hovering model based on Tabu Search, this article effectively demonstrates the validity and applicability.
 \end{enumerate}
@@ -223,8 +224,8 @@ $t_{fly}^{\delta}$ & The flight time of drones\\
 
 % 4. Model
 
-\section{Progressive CourtSense: Judging the State of the Match}
-This model aims to capture the flow of the match by predicting the outcome of the next point, using available match information. First, we need to apply feature engineering to the given data to extract useful features.
+\section{CourtSense Model: Judging the State of the Match}
+The CourtSense model aims to capture the current state of the match by predicting the outcome of the next unplayed point, using available match information. First, we need to apply feature engineering to the given data to extract useful features.
 
 \subsection{Feature Engineering}
 
@@ -292,23 +293,73 @@ where
 \[
 S_{t}^{(t-1)} = \sum_{i=t-3}^{t-1} F_{t}^{(i)}
 \]
-represents the sum of temporal features of last 3 points played, and \( F_{nt} \) represents the non-temporal features at the current point \( t \). So far, we have acquired a granular and exhaustive features that completely describe the match's status at a specific point and is ready to be fed into our core Progressive Logistic Model.
+represents the sum of temporal features of last 3 points played, and \( F_{nt} \) represents the non-temporal features at the current point \( t \). So far, we have acquired a granular and exhaustive features that completely describe the match's status at a specific point and is ready to be fed into our Progressive Logistic Model - the core of the CourtSense model.
 
 \subsection{Progressive Logistic Model}
-To effectively capture the dynamic flow of a tennis match, we introduce the Progressive Logistic Model. This model is designed to predict the outcome probability of the current point, providing a real-time assessment of the match's status and the relative performances of the players. The Progressive Logistic Model utilizes a multinomial logistic regression framework, due to its suitability for binary outcome prediction (e.g., point won or lost) and its ability to output probabilities based a multiple features, combined with a Forgetting Factor, which is used update the model as the match unfolds, particularly useful in situations like this where the flow of match is non-stationary. The general process of this model is depicted in Figure 3. 
+To effectively capture the dynamic flow of a tennis match, we introduce the Progressive Logistic Model. This model is designed to predict the outcome probability of the current point, providing a real-time assessment of the match's status and the relative performances of the players. The Progressive Logistic Model utilizes a multivariate logistic regression framework, due to its suitability for binary outcome prediction (e.g., point won or lost) and its ability to output probabilities based on multiple features; furthermore, combined with the Forgetting Factor, the model is capable of progressively updating the model according to the latest match information as the match unfolds. The general process of this model is depicted in Figure 3. 
 
 \begin{figure}[htbp]  %h此处，t页顶，b页底，p独立一页，浮动体出现的位置
 	\centering  %图表居中
 	\includegraphics[width=.9\textwidth]{logistic.png} %图片的名称或者路径之中有空格会出问题 
-	\caption{Flow Chart of Our Work} % 图片标题 
+	\caption{Process of the Progressive Logistic Regression Model} % 图片标题 
 \end{figure}
 \vspace{-0.8cm}
 
 \subsubsection{Model Establishment}
-123
+Logistic regression is a statistical model used for binary classification problems, developed by David Cox in 1958. It is a type of generalized linear model (GLM) that uses a logistic function to model a binary dependent variable. The goal of logistic regression is to find the best fitting model to describe the relationship between the dichotomous characteristic of interest (dependent variable = 0 or 1) and a set of independent variables (predictors) \cite{5}. While the assumption of variable independence is ideal, logistic regression can still perform effectively in real-world scenarios where complete independence is rare, such as our feature set that describe match's information.
 
-\subsubsection{Model Training}
-123
+To feed the aggregated features into a logistic regression model, each feature set is represented as a vector $x^{(t)}$ at timestep t (which means the t-th point played in this match), and these vectors are used to calculate the probability of winning a point. $x^{(t)}$ is directly derived from the feature set \( F^{(t)} \), which contains both temporal features and non-temporal features.
+
+The logistic regression model predicts the probability $ P(y^{(t)}=1|\mathbf{x}^{(t)}; \mathbf{\theta}) $
+where $y^{(t)}=1$ indicates the event of interest (i.e., winning the point), $x^{(t)}$ is the feature vector at timestep t, and $\mathbf{\theta}$ represents the model parameter (weights). The model calculates the probability using the formula below:
+\[
+P(y^{(t)}=1|\mathbf{x}^{(t)}; \mathbf{\theta}) = \sigma(\mathbf{\theta}^\top \mathbf{x}^{(t)})
+\]
+where \( \sigma(z) \) is the sigmoid function defined as:
+\[
+\sigma(z) = \frac{1}{1 + e^{-z}}
+\]
+and \( z = \mathbf{\theta}^\top \mathbf{x}^{(t)} \) represents the linear combination of the features \( \mathbf{x}^{(t)} \) weighted by the model parameters \( \mathbf{\theta} \), expressed as:
+\[
+z = \theta_0 + \theta_1 x_1^{(t)} + \theta_2 x_2^{(t)} + \cdots + \theta_n x_n^{(t)}
+\]
+where \( \theta_0 \) is the intercept term, \( \theta_1, \theta_2, \ldots, \theta_n \) are the weights associated with each feature \( x_1^{(t)}, x_2^{(t)}, \ldots, x_n^{(t)} \) in the feature vector \( \mathbf{x}^{(t)} \).
+
+Once we have the correct set of model parameters, we can determine the winning probability of a player based on the feature vector of the match for that player.
+
+
+\subsubsection{Parameters Training \& Updating}
+One of our Progressive Logistic Model's highlights is its ability to progressively adjust itself during the play of the match. But this does not mean it relies only on the real-time data; instead, we first train the model using the data given by the problem (pre-training phase), and when applied to a specific match, the progressive real-time data updates the parameters as the match unfolds (updating phase).
+
+The training of the logistic regression model's parameters $\mathbf{\theta}$ is achieved by minimizing the logistic loss function, which quantifies the difference between the predicted outcomes and the actual results of matches:
+\[
+\mathcal{L}(\mathbf{\theta}) = -\frac{1}{m} \sum_{i=1}^{m} \left[ y^{(i)} \log(\sigma(\mathbf{\theta}^\top \mathbf{x}^{(i)})) + (1 - y^{(i)}) \log(1 - \sigma(\mathbf{\theta}^\top \mathbf{x}^{(i)})) \right]
+\]
+where \( m \) represents the number of observations in the training dataset, \( y^{(i)} \) denotes the outcome of the \( i \)-th point (win or loss), and \( \mathbf{x}^{(i)} \) is the feature vector associated with the \( i \)-th point in a match. Then, the parameter vector \( \mathbf{\theta} \) is optimized performed using Gradient Descent, described as:
+\[
+\mathbf{\theta} := \mathbf{\theta} - \alpha \nabla_{\mathbf{\theta}} \mathcal{L}(\mathbf{\theta})
+\]
+where \( \alpha \) is the learning rate that regulates the step size during each iteration, and \( \nabla_{\mathbf{\theta}} \mathcal{L}(\mathbf{\theta}) \) represents the gradient of the loss function with respect to the parameter vector \( \mathbf{\theta} \). Considering the constraints of the size of the dataset and the model's ability to update itself during a match, we meticulously choose different values for pre-training our model and updating our model during the match:
+\[
+\alpha = 
+\begin{cases} 
+	0.01 & \text{at pre-training phase } \\
+	0.05 & \text{at updating phase } 
+\end{cases}
+\]
+in this way, for each data point, both when pre-training and when updating, the parameter vector is iteratively updated in the direction that reduces the loss function.
+
+At updating phase, the logistic regression model's parameters (\( \mathbf{\theta} \)) need to reflect the latest match data. This requires us to place more weight to the latest information of the points. Therefore, aside from using a higher learning rate value, a forgetting factor \( \lambda \) is incorporated into the parameter update rule:
+
+\[
+\mathbf{\theta}^{(t)} = \lambda \cdot \mathbf{\theta}^{(t-1)} +  \Delta\mathbf{\theta}^{(t-1)}
+\]
+\[ 
+\Delta\mathbf{\theta}^{(t-1)} = - (1 - \lambda) \alpha \nabla_{\mathbf{\theta}^{(t-1)}} \mathcal{L}(\mathbf{\theta}^{(t-1)})
+\]
+this rule adjusts $\mathbf{\theta}^{(t)}$ by blending the previous parameters  \( \mathbf{\theta}^{(t-1)} \), scaled by \( \lambda \), with the changes dictated by new data (\( - \alpha \nabla_{\mathbf{\theta}^{(t-1)}} \mathcal{L}(\mathbf{\theta}^{(t-1)}) \)), scaled by $ (1 - \lambda) $. In such a way, the forgetting factor allows the model to prioritize recent information and adapt to changes in gameplay strategies or player performance over time.
+
+To this point, we have thoroughly established our CourtSense model, which first uses feature selection combined with a sliding window mechanism, and leverages a Progressive Logistic Model to follow the flow of the match and predict the result of a specific point.
 
 \subsubsection{Model Validation}
 123
@@ -383,11 +434,11 @@ Considering the heat map we made, it shows the number of wildfires in various st
 
 \clearpage   
 \begin{thebibliography}{99}
-    \bibitem{1} Skysports | Wimbledon: Carlos Alcaraz dismantles Daniil Medvedev to set up final against Novak Djokovic,  www.skysports.com/tennis/news/32498/12920986/wimbledon-carlos-alcaraz-dismantles-daniil-medvedev-to-set-up-final-against-novak-djokovic
-	\bibitem{2} Medium | Predicting ATP Tennis Match Outcomes Using Serving Statistics, https://medium.com/swlh/cde03d99f410
-	\bibitem{3} Avinash Dixit, Susan Skeath. The Most Important Situations in Tennis – and in R\&D Competition, https://www.princeton.edu/~dixitak/home/Tennis.pdf
-	\bibitem{4} Pual K. Newton, Joseph B. Keller. Probability of Winning at Tennis I. Theory and Data, https://www.cis.upenn.edu/~bhusnur4/cit592\_fall2013/NeKe2005.pdf
-	\bibitem{5} XU Jian, ZHOU Deyun, HUANG He. Multi UAV path planning based on improved ge-netic algorithm. Aeronautical Computing Technique, 2009, 39(4): 43-46.
+    \bibitem{1} \href{https://www.skysports.com/tennis/news/32498/12920986/wimbledon-carlos-alcaraz-dismantles-daniil-medvedev-to-set-up-final-against-novak-djokovic}{Skysports | Wimbledon: Carlos Alcaraz dismantles Daniil Medvedev to set up final against Novak Djokovic.}
+	\bibitem{2} \href{https://medium.com/swlh/cde03d99f410}{Medium | Predicting ATP Tennis Match Outcomes Using Serving Statistics.}
+	\bibitem{3} \href{https://www.princeton.edu/~dixitak/home/Tennis.pdf}{Avinash Dixit, Susan Skeath. The Most Important Situations in Tennis – and in R\&D Competition.}
+	\bibitem{4} \href{https://www.cis.upenn.edu/~bhusnur4/cit592\_fall2013/NeKe2005.pdf}{Pual K. Newton, Joseph B. Keller. Probability of Winning at Tennis I. Theory and Data.}
+	\bibitem{5} \href{https://papers.tinbergen.nl/02119.pdf}{JS Cramer, University of Amsterdam, 2022. The Origins of Logistic Regression. }
 
 \end{thebibliography}
 
