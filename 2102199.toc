@@ -9,16 +9,16 @@
 \contentsline {section}{\numberline {3}Notations}{7}{section.0.3}%
 \contentsline {section}{\numberline {4}CourtSense Model: Judging the State of the Match}{7}{section.0.4}%
 \contentsline {subsection}{\numberline {4.1}Feature Engineering}{7}{subsection.0.4.1}%
-\contentsline {subsubsection}{\numberline {4.1.1}Data Processing}{7}{subsubsection.0.4.1.1}%
+\contentsline {subsubsection}{\numberline {4.1.1}Data Extraction}{7}{subsubsection.0.4.1.1}%
 \contentsline {subsubsection}{\numberline {4.1.2}Sliding Window Mechanism}{8}{subsubsection.0.4.1.2}%
 \contentsline {subsection}{\numberline {4.2}Progressive Logistic Model}{9}{subsection.0.4.2}%
 \contentsline {subsubsection}{\numberline {4.2.1}Model Establishment}{9}{subsubsection.0.4.2.1}%
 \contentsline {subsubsection}{\numberline {4.2.2}Parameters Training \& Updating}{10}{subsubsection.0.4.2.2}%
-\contentsline {subsubsection}{\numberline {4.2.3}Model Validation}{11}{subsubsection.0.4.2.3}%
-\contentsline {subsubsection}{\numberline {4.2.4}Match Flow Visualization}{11}{subsubsection.0.4.2.4}%
-\contentsline {subsubsection}{\numberline {4.2.5}Data Screening}{11}{subsubsection.0.4.2.5}%
-\contentsline {section}{References}{13}{section.0.5}%
-\contentsline {section}{\numberline {A}Appendix I: The Genetic Algorithm}{13}{appendix.A}%
-\contentsline {section}{\numberline {B}Appendix II: Mail to the S.H.I.E.L.D}{13}{appendix.B}%
-\contentsline {section}{Letter to Central Intelligence Agency}{14}{appendix.C}%
+\contentsline {subsection}{\numberline {4.3}Model Validation}{11}{subsection.0.4.3}%
+\contentsline {subsection}{\numberline {4.4}Match Flow Visualization}{12}{subsection.0.4.4}%
+\contentsline {subsubsection}{\numberline {4.4.1}Data Screening}{13}{subsubsection.0.4.4.1}%
+\contentsline {section}{References}{15}{section.0.5}%
+\contentsline {section}{\numberline {A}Appendix I: The Genetic Algorithm}{15}{appendix.A}%
+\contentsline {section}{\numberline {B}Appendix II: Mail to the S.H.I.E.L.D}{15}{appendix.B}%
+\contentsline {section}{Letter to Central Intelligence Agency}{16}{appendix.C}%
 \contentsfinish 

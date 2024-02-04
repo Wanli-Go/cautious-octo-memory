@@ -80,7 +80,7 @@ Finally, sensitivity analysis of the mathematical expectation of extreme fire ev
 \section{Introduction}
 
 \subsection{Background}
-If you are a fan in competitive sports games like tennis, you might have heard a lot of the word “Momentum”. When a player has momentum, they seem to control the dominance of the match, wielding the match's rhythm and flow. Novak Djokovic, a record-breaking tennis player, described this in his saying: “… if you have the mental ability to stay strong, stay patient and \textbf{confident} and just have \textbf{belief} in the right moments, then you get a win, you know.”
+If you are a fan in competitive sports games like tennis, you might have heard a lot of the word “Momentum”. When a player has momentum, they seem to control the dominance of the match, wielding the match's rhythm and flow. Novak Djokovic, a record-breaking tennis player, described this in his saying: “… if you have the mental ability to stay strong, stay patient and confident and just have belief in the right moments, then you get a win, you know.”
 
 However, momentum is not stationary; you probably have witnessed momentum being lost or stolen from a player during a match, entirely changing the outcome. Momentum can switch to the other player within the blink of an eye and stun unsuspecting players and spectators. This is especially spectacular during the 2023 Wimbledon Gentlemen’s final between Carlos Alcaraz and Novak Djokovic (Figure 1). In this match, Djokovic completely dominated the first set with a score of 6 – 1, displaying enormous momentum. However, this quickly shifted to Alcaraz in the third set, where he won 6 - 1, before Djokovic regained control in the fourth set with a 6 - 3 win. Finally, in the late stages of the fifth set, the momentum swung once again, and Alcaraz secured victory with a score of 6 - 4.
 
@@ -97,7 +97,7 @@ But where \textbf{exactly} did that momentum come from? Despite its recognized i
 	\begin{minipage}{0.45\textwidth}
 	\centering  %图表居中
 \includegraphics[width=.6\textwidth]{data-given.png} %图片的名称或者路径之中有空格会出问题 
-\caption{Data Aspects Provided by Wimbledon\_featured\_matches.csv} % 图片标题 
+\caption{Data Aspects Provided by \textit{Wimbledon\_featured\_matches.csv}} % 图片标题 
 \label{fig:Fire Situation} % 图片标签，可以不写
 	\end{minipage}
 \end{figure}
@@ -116,9 +116,9 @@ Momentum is a \textit{phenomenon}, which means it is an outcome of a wide range 
 \end{enumerate}
 
 \subsubsection{Capturing the Match's Flow}
-To compare the performance ratings between the two players, we can use the data provided in Wimbledon\_featured\_matches.csv that describe the explicit match information, such as whether a player was serving or at a break point, etc. (shown in Figure 2); but we also need to consider other implicit information that has significant impact on the state of the match, for example, whether a player has a high scoring streak. Other unimportant information, potentially the speed of the serve, needs to be neglected to ensure model's simplicity and robustness. This inherently requires \textbf{feature engineering}: to extract and construct feature variables that capture both explicit and implicit aspects that control the flow of the match.
+To compare the performance ratings between the two players, we can use the data provided in \textit{Wimbledon\_featured\_matches.csv} that describe the explicit match information, such as whether a player was serving or at a break point, etc. (shown in Figure 2); but we also need to consider other implicit information that has significant impact on the state of the match, for example, whether a player has a high scoring streak. Other unimportant information, potentially the speed of the serve, needs to be neglected to ensure model's simplicity and robustness. This inherently requires \textbf{feature engineering}: to extract and construct feature variables that capture both explicit and implicit aspects that control the flow of the match.
 
-Since our model aims to dynamically assess the match's state as it unfolds, it requires a granular focus on the ebb and flow of the game, taking into account both minor and major developments at any given moment. For example, the player may have an advantage in games won, but when the other player just scored a break point, that player could be performing much better at that specific time. Therefore, to scope the data to recently played points, the \textbf{sliding window} technique can be employed; to handle older scores and progressively update the model as the match goes on, introduction of a \textbf{forgetting factor} would be applicable, as illustrated in Figure 3. The remaining work would be finding an appropriate model to map these parameters to the performance or the win rate of a player. 
+Since our model aims to dynamically assess the match's state as it evolves, it requires a granular focus on the ebb and flow of the game, taking into account both minor and major developments at any given moment. For example, the player may have an advantage in games won, but when the other player just scored a break point, that player could be performing much better at that specific time. Therefore, to scope the data to recently played points, the \textbf{sliding window} technique can be employed; to handle older scores and progressively update the model as the match goes on, introduction of a \textbf{forgetting factor} would be applicable, as illustrated in Figure 3. The remaining work would be finding an appropriate model to map these parameters to the performance or the win rate of a player. 
 
 \begin{figure}[htbp]  %h此处，t页顶，b页底，p独立一页，浮动体出现的位置
 	\centering  %图表居中
@@ -229,8 +229,8 @@ The CourtSense model aims to capture the current state of the match by predictin
 
 \subsection{Feature Engineering}
 
-\subsubsection{Data Processing}
-The data provided by the problem (Wimbledon\_featured\_matches.csv) is a comprehensive dataset that contains the complete match information, including scores, serve details, point details which are all applicable to analyze the state of the match. After a thorough inspection of the data, we find that the data is clean and usable. However, these are all explicit match information and is limited to a specific point, for example, whether this player is serving, what is the ratio of scores, etc. We think that more temporal features like whether this player is leading in score are more direct in describing the match’s status; hence we added them to the feature set. These additional features are included in Table 2.
+\subsubsection{Data Extraction}
+The data provided by the problem (\textit{Wimbledon\_featured\_matches.csv}) is a comprehensive dataset that contains the complete match information, including scores, serve details, point details which are all applicable to analyze the state of the match. After a thorough inspection of the data, we find that the data is clean and usable. However, these are all explicit match information and is limited to a specific point, for example, whether this player is serving, what is the ratio of scores, etc. We think that more temporal features like whether this player is leading in score are more direct in describing the match’s status; hence we added them to the feature set. These additional features are included in Table 2.
 
 
 \begin{table}[htbp]
@@ -243,8 +243,8 @@ The data provided by the problem (Wimbledon\_featured\_matches.csv) is a compreh
 			\multicolumn{1}{m{8cm}}{\centering \textbf{Description}} & 
 		\multicolumn{1}{m{5cm}}{\centering \textbf{Example Value}} \\ 
 	\midrule
-	p1\_streak & The winning losing streak of player 1 up until that point & 5, 0, -3 \\
-	p2\_streak & The winning losing streak of player 2 up until that point & 3, 0, -5 \\ 
+	p1\_streak & The winning / losing streak of player 1 up until that point & 5, 0, -3 \\
+	p2\_streak & The winning / losing streak of player 2 up until that point & 3, 0, -5 \\ 
 	p1\_leading & Whether p1 is leading in score & 1 (leading), 0, -1 \\
 	p2\_leading & Whether p1 is leading in score & -1 (losing), 0, 1 \\
 	p1\_leading\_game & Whether p1 is leading in game & 1, 0, -1 \\
@@ -276,7 +276,7 @@ V_{p2}^{(i)} =
 	0 & \text{if if \textit{game\_victor} = 0 at point } i
 \end{cases}
 \]
-This procedure ensures these data can be modeled as their respective performance.  
+this procedure ensures these data can be modeled as their respective performance.  
 
 Finally, we discarded other rather unimportant or redundant information for the match, such as the raw score information, the speed of the serve (which cannot be used for points already in play when predicting point outcomes), unforced errors (not an indicator of player's performance), and information about net points. These choices are made after conducting a thorough research on related Sports Analytics in the field of tennis \cite{2}\cite{3}\cite{4}. The remaining features alongside the constructed features can be used as raw input data for our model.
 
@@ -296,7 +296,7 @@ S_{t}^{(t-1)} = \sum_{i=t-3}^{t-1} F_{t}^{(i)}
 represents the sum of temporal features of last 3 points played, and \( F_{nt} \) represents the non-temporal features at the current point \( t \). So far, we have acquired a granular and exhaustive features that completely describe the match's status at a specific point and is ready to be fed into our Progressive Logistic Model - the core of the CourtSense model.
 
 \subsection{Progressive Logistic Model}
-To effectively capture the dynamic flow of a tennis match, we introduce the Progressive Logistic Model. This model is designed to predict the outcome probability of the current point, providing a real-time assessment of the match's status and the relative performances of the players. The Progressive Logistic Model utilizes a multivariate logistic regression framework, due to its suitability for binary outcome prediction (e.g., point won or lost) and its ability to output probabilities based on multiple features; furthermore, combined with the Forgetting Factor, the model is capable of progressively updating the model according to the latest match information as the match unfolds. The general process of this model is depicted in Figure 3. 
+To effectively capture the dynamic flow of a tennis match, we introduce the Progressive Logistic Model. This model is designed to predict the outcome probability of the current point, providing a real-time assessment of the match's status and the relative performances of the players. The Progressive Logistic Model utilizes a multivariate logistic regression framework, due to its suitability for binary outcome prediction (e.g., point won or lost) and its ability to output probabilities based on multiple features; furthermore, combined with the Forgetting Factor, the model is capable of progressively updating the model according to the latest match information as the match progresses. The general process of this model is depicted in Figure 3. 
 
 \begin{figure}[htbp]  %h此处，t页顶，b页底，p独立一页，浮动体出现的位置
 	\centering  %图表居中
@@ -357,16 +357,66 @@ At updating phase, the logistic regression model's parameters (\( \mathbf{\theta
 \[ 
 \Delta\mathbf{\theta}^{(t-1)} = - (1 - \lambda) \alpha \nabla_{\mathbf{\theta}^{(t-1)}} \mathcal{L}(\mathbf{\theta}^{(t-1)})
 \]
-this rule adjusts $\mathbf{\theta}^{(t)}$ by blending the previous parameters  \( \mathbf{\theta}^{(t-1)} \), scaled by \( \lambda \), with the changes dictated by new data (\( - \alpha \nabla_{\mathbf{\theta}^{(t-1)}} \mathcal{L}(\mathbf{\theta}^{(t-1)}) \)), scaled by $ (1 - \lambda) $. In such a way, the forgetting factor allows the model to prioritize recent information and adapt to changes in gameplay strategies or player performance over time.
+this rule adjusts $\mathbf{\theta}^{(t)}$ by blending the previous parameters  \( \mathbf{\theta}^{(t-1)} \), scaled by \( \lambda \), with the changes updated by new data (\( - \alpha \nabla_{\mathbf{\theta}^{(t-1)}} \mathcal{L}(\mathbf{\theta}^{(t-1)}) \)), scaled by $ (1 - \lambda) $. In such a way, the forgetting factor allows the model to prioritize recent information and adapt to changes in gameplay strategies or player performance over time.
 
-To this point, we have thoroughly established our CourtSense model, which first uses feature selection combined with a sliding window mechanism, and leverages a Progressive Logistic Model to follow the flow of the match and predict the result of a specific point.
+To this point, we have thoroughly established our CourtSense model, which first uses feature selection combined with a sliding window mechanism, and leverages a Progressive Logistic Model to follow the flow of the match and predict the result of a specific point. 
 
-\subsubsection{Model Validation}
-123
+The original dataset of \textit{Wimbledon\_featured\_matches.csv} included the matches played at Wimbledon 2023 from the 3rd round to the final round (7th round). To separate the training and testing sets, we use the data of the 30 matches from the 3rd round to the semi-final round, and use the epic match in the final round between Carlos Alcaraz and Novak Djokovic to validate our model's accuracy.
 
-\subsubsection{Match Flow Visualization}
+We train our CourtSense model using Scikit-learn, a machine learning framework for Python. After pre-training, the CourtSense Model is then tested on the testing set, where the model starts from predicting the winning probabilities of both players at the first point, and updates itself based the actual result of the first point, and then moves on to predict the second point, etc. The aggregated results of all point predictions and their actual outcomes are used for validating our model's performance.
 
+\subsection{Model Validation}
 
+In validating the performance of our CourtSense model, we focused on a suite of standard evaluation metrics, including Mean Squared Error (MSE), accuracy, confusion matrix, and AUC-ROC. MSE represents how far the model's predictions are from the actual values; accuracy measures the proportion of total predictions our model gets right; the confusion matrix shows exactly how many values were predicted correctly or falsely; AUC provides an insight into the model's ability to distinguish between the two possible outcomes (winning or losing a point), with higher values close to 1 indicating better performance. The detailed explanation can be found in \cite{6}. The result of these metrics are shown in Table 3 and Figure 7.
+\begin{table}[htbp]
+	\centering
+	\caption{Evaluation Metrics Result for CourtSense Model}
+	\resizebox{0.7\textwidth}{!}{% Ensure this scales the table appropriately
+		\begin{tabular}{ccc} % You can use 'c' alignment since you're centering all cells
+			\toprule[2pt]
+			\multicolumn{1}{m{4cm}}{\centering \textbf{Metric}} &
+			\multicolumn{1}{m{4cm}}{\centering \textbf{Value for Player 1}} &
+			\multicolumn{1}{m{4cm}}{\centering \textbf{Value for Player 2}} \\
+			\midrule
+			MSE & 19.57\% & 19.02\% \\
+			Accuracy & 92.52\% & 93.11\% \\
+			AUC-ROC & 93.886\% & 93.445\% \\
+			\bottomrule[2pt]
+		\end{tabular}
+	}
+\end{table}
+\vspace{0.8cm}
+\begin{figure}[htbp]  %h此处，t页顶，b页底，p独立一页，浮动体出现的位置
+	\centering  %图表居中
+	\includegraphics[width=.5\textwidth]{confusion-matrix.png} %图片的名称或者路径之中有空格会出问题 
+	\caption{Confusion Matrix for CourtSense Model} % 图片标题 
+\end{figure}
+\vspace{-0.8cm}
+
+To our surprise, the CourtSense model performs exceedingly well at predicting each point's outcome during the match. It is almost too good: the model achieved an average accuracy of 92.82\%, while the AUC stood at an average of 93.67\%, suggesting that the model can reliably forecast match dynamics, providing valuable insights into players' performance. This could be attributed to our meticulous selection of features and the various mechanisms our model used.
+
+In addition to evaluating the overall performance of our CourtSense model, we also analyzed on its adaptability throughout the progression of a match. We analyzed the model's accuracy in predicting outcomes by computing a moving average across 20-point windows. This approach allowed us to observe how the model's predictive accuracy fluctuated over the course of a match. The resulting data is illustrated in Figure 8. 
+
+\begin{figure}[htbp]  %h此处，t页顶，b页底，p独立一页，浮动体出现的位置
+	\centering  %图表居中
+	\includegraphics[width=.8\textwidth]{moving-average.png} %图片的名称或者路径之中有空格会出问题 
+	\caption{Average Predictive Power of CourtSense as Match Unfolds} % 图片标题 
+\end{figure}
+\vspace{-0.5cm}
+
+We can see the model starts at a relatively low accuracy, and moves up as the match unfolds. Generally, for each set of the game (as separated by the vertical lines in the graph), the model is able to progressively adapt its parameters to better fit the match's status, although there are some fluctuations, probably signaling a randomness for the outcome of the points.
+
+\subsection{Match Flow Visualization}
+To visualize the flow of the match, we select the 2nd set of the final match between Carlos Alcaraz and Novak Djokovic, which was an intense play with a tie-breaker of 7-6. Figure 9 presents a graphical depiction of the prediction difference between the two players, which indicates their performance differences, over the course of this set. The vertical axis is the difference in the predicted probability of winning each point; while the horizontal axis represents the sequence of points played. 
+
+\begin{figure}[htbp]  %h此处，t页顶，b页底，p独立一页，浮动体出现的位置
+	\centering  %图表居中
+	\includegraphics[width=.8\textwidth]{prediction-difference.png} %图片的名称或者路径之中有空格会出问题 
+	\caption{Match's Flow during the 2nd Set of the Final Match, Indicated by the Winning Chance Difference} % 图片标题 
+\end{figure}
+%\vspace{-0.8cm}
+
+We can see the fluctuations in the graph that trace the ebb and flow of the match. When the curve rises above the zero line, it suggests that Player 1 is more likely to win the point; when it dips below, Player 2 is favored. The dotted line at 0.08 reflects the average prediction difference across all points, which is a little above 0 (happens to reflect the tie-breaker win of Alcaraz).
 
 \subsubsection{Data Screening}
 Judging from the map of Victoria in Figure 4 (right), the eastern region is mainly forest, while the western region is almost no forest. Furthermore, to demonstrate better the situa-tion of wildfires, we plot over a heat map in Figure 4 (left).
@@ -439,6 +489,7 @@ Considering the heat map we made, it shows the number of wildfires in various st
 	\bibitem{3} \href{https://www.princeton.edu/~dixitak/home/Tennis.pdf}{Avinash Dixit, Susan Skeath. The Most Important Situations in Tennis – and in R\&D Competition.}
 	\bibitem{4} \href{https://www.cis.upenn.edu/~bhusnur4/cit592\_fall2013/NeKe2005.pdf}{Pual K. Newton, Joseph B. Keller. Probability of Winning at Tennis I. Theory and Data.}
 	\bibitem{5} \href{https://papers.tinbergen.nl/02119.pdf}{JS Cramer, University of Amsterdam, 2022. The Origins of Logistic Regression. }
+	\bibitem{6} \href{https://www.analyticsvidhya.com/blog/2021/07/metrics-to-evaluate-your-classification-model-to-take-the-right-decisions/}{Analytics Vidhya | Metrics to Evaluate your Classification Model.}
 
 \end{thebibliography}
 
