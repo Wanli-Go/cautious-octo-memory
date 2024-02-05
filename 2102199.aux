@@ -18,66 +18,97 @@
 \babel@aux{english}{}
 \citation{1}
 \citation{1}
-\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{3}{section.0.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.1}Background}{3}{subsection.0.1.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {1}Problem Background}{3}{section.0.1}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Carlos Alcaraz (Left) and Novak Djokovic (Right) at Wimbledon \cite  {1}\relax }}{3}{figure.caption.1}\protected@file@percent }
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
 \newlabel{fig:Fire Situation}{{1}{3}{Carlos Alcaraz (Left) and Novak Djokovic (Right) at Wimbledon \cite {1}\relax }{figure.caption.1}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Data Aspects Provided by \textit  {Wimbledon\_featured\_matches.csv}\relax }}{3}{figure.caption.1}\protected@file@percent }
 \newlabel{fig:Fire Situation}{{2}{3}{Data Aspects Provided by \textit {Wimbledon\_featured\_matches.csv}\relax }{figure.caption.1}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.2}Problem Analysis}{3}{subsection.0.1.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {1.2.1}Capturing the Match's Flow}{4}{subsubsection.0.1.2.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces \centering  Information Is Constrained by Sliding Window and Forgetting Factor. (Note that the data in this graph is for display purposes only.)\relax }}{4}{figure.caption.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.3}Literature Review}{4}{subsection.0.1.3}\protected@file@percent }
-\citation{2}
-\citation{3}
-\citation{4}
-\citation{5}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Literature Review Framework\relax }}{5}{figure.caption.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.4}Our Work}{5}{subsection.0.1.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2}Problem Analysis: What is Momentum?}{3}{section.0.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Capturing the Flow of Match}{4}{subsection.0.2.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces \centering  Information Is Constrained by Sliding Window and Forgetting Factor. (Note that the data in this graph is for understanding the process.)\relax }}{4}{figure.caption.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}How to Describe Momentum and What Affects It}{4}{subsection.0.2.2}\protected@file@percent }
+\citation{-1}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces \centering  Process of Modeling Momentum\relax }}{5}{figure.caption.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Our Work}{6}{subsection.0.2.3}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Flow Chart of Our Work\relax }}{6}{figure.caption.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {2}Assumptions and Explanations}{6}{section.0.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {3}Notations}{7}{section.0.3}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Notations used in this paper\relax }}{7}{table.caption.5}\protected@file@percent }
-\newlabel{tb:notation}{{1}{7}{Notations used in this paper\relax }{table.caption.5}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4}CourtSense Model: Judging the State of the Match}{7}{section.0.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3}Model Preliminaries}{6}{section.0.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Assumptions}{7}{subsection.0.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Notations}{7}{subsection.0.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4}CourtSense: Understanding the State of Match}{7}{section.0.4}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Feature Engineering}{7}{subsection.0.4.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.1}Data Extraction}{7}{subsubsection.0.4.1.1}\protected@file@percent }
 \citation{2}
 \citation{3}
 \citation{4}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Notations used in this paper\relax }}{8}{table.caption.5}\protected@file@percent }
+\newlabel{tb:notation}{{1}{8}{Notations used in this paper\relax }{table.caption.5}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Added Match Information\relax }}{8}{table.caption.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.2}Sliding Window Mechanism}{8}{subsubsection.0.4.1.2}\protected@file@percent }
 \citation{5}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.2}Sliding Window Mechanism}{9}{subsubsection.0.4.1.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Progressive Logistic Model}{9}{subsection.0.4.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Process of the Progressive Logistic Regression Model\relax }}{9}{figure.caption.7}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.1}Model Establishment}{9}{subsubsection.0.4.2.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Process of the Progressive Logistic Regression Model\relax }}{10}{figure.caption.7}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.2}Parameters Training \& Updating}{10}{subsubsection.0.4.2.2}\protected@file@percent }
 \citation{6}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Model Validation}{11}{subsection.0.4.3}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Evaluation Metrics Result for CourtSense Model\relax }}{11}{table.caption.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Model Validation}{12}{subsection.0.4.3}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Evaluation Metrics Result for CourtSense Model\relax }}{12}{table.caption.8}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Confusion Matrix for CourtSense Model\relax }}{12}{figure.caption.9}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Average Predictive Power of CourtSense as Match Unfolds\relax }}{12}{figure.caption.10}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Match Flow Visualization}{12}{subsection.0.4.4}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Average Predictive Power of CourtSense as Match Unfolds\relax }}{13}{figure.caption.10}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Match's Flow during the 2nd Set of the Final Match, Indicated by the Winning Chance Difference\relax }}{13}{figure.caption.11}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.4.1}Data Screening}{13}{subsubsection.0.4.4.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Data Screening\relax }}{13}{figure.caption.12}\protected@file@percent }
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Data Screening(left)}}}{13}{figure.caption.12}\protected@file@percent }
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Data Screening(right)}}}{13}{figure.caption.12}\protected@file@percent }
-\@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces BLAH BLAH BLAH\relax }}{14}{algorithm.1}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Data and Database Websites\relax }}{14}{table.caption.14}\protected@file@percent }
-\bibcite{1}{1}
-\bibcite{2}{2}
-\bibcite{3}{3}
-\bibcite{4}{4}
-\bibcite{5}{5}
-\bibcite{6}{6}
-\@writefile{toc}{\contentsline {section}{References}{15}{section.0.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {A}Appendix I: The Genetic Algorithm}{15}{appendix.A}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {B}Appendix II: Mail to the S.H.I.E.L.D}{15}{appendix.B}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{Letter to Central Intelligence Agency}{16}{appendix.C}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5}Momentum Quantifier (MoQ): Decoding the Myth of Momentum}{13}{section.0.5}\protected@file@percent }
+\citation{7}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Designating a Performance Metric}{14}{subsection.0.5.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Sum of gained point differences within a scope of 12 points\relax }}{14}{figure.caption.12}\protected@file@percent }
+\citation{8}
+\citation{9}
+\citation{10}
+\citation{11}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Determining the Factors of Momentum}{15}{subsection.0.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}MoQ's Core: Time-Series Analysis with LSTM}{15}{subsection.0.5.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.3.1}LSTM Structure}{15}{subsubsection.0.5.3.1}\protected@file@percent }
+\citation{12}
+\citation{12}
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Simplified Description of the Process within a LSTM cell \cite  {12}\relax }}{16}{figure.caption.13}\protected@file@percent }
+\citation{13}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.3.2}Model Training}{17}{subsubsection.0.5.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Forward Propagation}{17}{paragraph*.14}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Back Propagation}{17}{paragraph*.15}\protected@file@percent }
+\citation{14}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Experiment}{18}{section.0.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Model's Result on Quantifying Momentum}{18}{subsection.0.6.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces MoQ Prediction Result on the Final Match (excluding the first 12 points)\relax }}{18}{figure.caption.16}\protected@file@percent }
+\citation{15}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Are Shifts in Momentum Random?}{19}{subsection.0.6.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces Distribution of value $\Delta M$\relax }}{19}{figure.caption.17}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces Correlations between Change in Momentum with different 4S Factors. The total value is obtained by simple addition of the absolute values of individual factors in hope to capture the combined effect on momentum.\relax }}{20}{figure.caption.18}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}On other matches: Generalizability Test}{21}{subsection.0.6.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {15}{\ignorespaces Data Screening\relax }}{21}{figure.caption.19}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Data Screening(left)}}}{21}{figure.caption.19}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Data Screening(right)}}}{21}{figure.caption.19}\protected@file@percent }
+\@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces BLAH BLAH BLAH\relax }}{21}{algorithm.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Data and Database Websites\relax }}{21}{table.caption.20}\protected@file@percent }
+\bibcite{-1}{1}
+\bibcite{1}{2}
+\bibcite{2}{3}
+\bibcite{3}{4}
+\bibcite{4}{5}
+\bibcite{5}{6}
+\bibcite{6}{7}
+\bibcite{7}{8}
+\bibcite{8}{9}
+\bibcite{9}{10}
+\bibcite{10}{11}
+\bibcite{11}{12}
+\bibcite{12}{13}
+\bibcite{13}{14}
+\bibcite{14}{15}
+\bibcite{15}{16}
+\@writefile{toc}{\contentsline {section}{References}{22}{section.0.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{Letter to Central Intelligence Agency}{23}{section.0.8}\protected@file@percent }
 \ttl@finishall
-\newlabel{LastPage}{{}{15}{}{page.15}{}}
-\xdef\lastpage@lastpage{15}
-\xdef\lastpage@lastpageHy{15}
-\gdef \@abspage@last{19}
+\newlabel{LastPage}{{}{22}{}{page.22}{}}
+\xdef\lastpage@lastpage{22}
+\xdef\lastpage@lastpageHy{22}
+\gdef \@abspage@last{26}

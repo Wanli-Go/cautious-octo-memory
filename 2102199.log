@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.5.26)  4 FEB 2024 13:30
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.5.26)  5 FEB 2024 23:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -871,124 +871,153 @@ F (HO)
 Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
 )
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
-))
-LaTeX Font Info:    Trying to load font information for U+msa on input line 58.
+)) [1
 
+{c:/D/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/D/texlive/2
+023/texmf-dist/fonts/enc/dvips/base/8r.enc}] (./2102199.toc
+LaTeX Font Info:    Trying to load font information for U+msa on input line 4.
 
 (c:/D/texlive/2023/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 58.
-
+LaTeX Font Info:    Trying to load font information for U+msb on input line 4.
 
 (c:/D/texlive/2023/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-Overfull \hbox (7.94528pt too wide) in paragraph at lines 65--66
-[]\T1/ppl/b/n/12 Keywords\T1/ppl/m/n/12 : Fight-ing Wild-fires; Multi-Objective
- Op-ti-miza-tion; Pois-son Dis-tri-bu-tion; Tabu Search
- []
-
-[1
-
-{c:/D/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/D/texlive/2
-023/texmf-dist/fonts/enc/dvips/base/8r.enc}] (./2102199.toc)
+))
 \tf@toc=\write5
 \openout5 = `2102199.toc'.
 
  [2]
-<img//carlos-alcaraz.jpg, id=131, 2055.68pt x 1156.32pt>
+<img//carlos-alcaraz.jpg, id=162, 2055.68pt x 1156.32pt>
 File: img//carlos-alcaraz.jpg Graphic file (type jpg)
 <use img//carlos-alcaraz.jpg>
-Package pdftex.def Info: img//carlos-alcaraz.jpg  used on input line 93.
+Package pdftex.def Info: img//carlos-alcaraz.jpg  used on input line 81.
 (pdftex.def)             Requested size: 243.27028pt x 136.82921pt.
-<img//data-given.png, id=134, 517.18219pt x 517.18219pt>
+<img//data-given.png, id=165, 517.18219pt x 517.18219pt>
 File: img//data-given.png Graphic file (type png)
 <use img//data-given.png>
-Package pdftex.def Info: img//data-given.png  used on input line 99.
+Package pdftex.def Info: img//data-given.png  used on input line 87.
 (pdftex.def)             Requested size: 138.28085pt x 138.27582pt.
  [3
 
  <./img//carlos-alcaraz.jpg> <./img//data-given.png (PNG copy)>]
-<img//sliding-window.png, id=144, 1258.7025pt x 469.755pt>
+<img//sliding-window.png, id=176, 1291.224pt x 467.94826pt>
 File: img//sliding-window.png Graphic file (type png)
 <use img//sliding-window.png>
-Package pdftex.def Info: img//sliding-window.png  used on input line 125.
-(pdftex.def)             Requested size: 435.3303pt x 162.46706pt.
+Package pdftex.def Info: img//sliding-window.png  used on input line 113.
+(pdftex.def)             Requested size: 435.3303pt x 157.76506pt.
  [4 <./img//sliding-window.png (PNG copy)>]
-LaTeX Font Info:    Trying to load font information for TS1+ppl on input line 1
-37.
- (c:/D/texlive/2023/texmf-dist/tex/latex/psnfss/ts1ppl.fd
-File: ts1ppl.fd 2001/06/04 font definitions for TS1/ppl.
-)
-<img//Literature_Review.png, id=157, 867.24pt x 490.83376pt>
-File: img//Literature_Review.png Graphic file (type png)
-<use img//Literature_Review.png>
-Package pdftex.def Info: img//Literature_Review.png  used on input line 145.
-(pdftex.def)             Requested size: 435.3303pt x 246.38991pt.
-
-[5 <./img//Literature_Review.png>]
-<img//Flow_Chart.png, id=170, 914.66719pt x 385.44pt>
+<img//momentum-model.png, id=186, 1087.6635pt x 626.94225pt>
+File: img//momentum-model.png Graphic file (type png)
+<use img//momentum-model.png>
+Package pdftex.def Info: img//momentum-model.png  used on input line 126.
+(pdftex.def)             Requested size: 512.14963pt x 295.21774pt.
+ [5 <./img//momentum-model.png (PNG copy)>]
+<img//Flow_Chart.png, id=194, 914.66719pt x 385.44pt>
 File: img//Flow_Chart.png Graphic file (type png)
 <use img//Flow_Chart.png>
-Package pdftex.def Info: img//Flow_Chart.png  used on input line 163.
+Package pdftex.def Info: img//Flow_Chart.png  used on input line 148.
 (pdftex.def)             Requested size: 460.93153pt x 194.23691pt.
  [6 <./img//Flow_Chart.png>]
-Overfull \hbox (0.50563pt too wide) in paragraph at lines 233--234
+Overfull \hbox (0.50563pt too wide) in paragraph at lines 218--219
 []\T1/ppl/m/n/12 The data pro-vided by the prob-lem (\T1/ppl/m/it/12 Wim-ble-do
 n_featured_matches.csv\T1/ppl/m/n/12 ) is a com-pre-hen-sive dataset
  []
 
 [7] [8]
-<img//logistic.png, id=203, 1565.85pt x 883.04906pt>
+<img//logistic.png, id=231, 1565.85pt x 883.04906pt>
 File: img//logistic.png Graphic file (type png)
 <use img//logistic.png>
-Package pdftex.def Info: img//logistic.png  used on input line 303.
+Package pdftex.def Info: img//logistic.png  used on input line 290.
 (pdftex.def)             Requested size: 460.93153pt x 259.93129pt.
- [9 <./img//logistic.png (PNG copy)>]
-Overfull \hbox (23.53157pt too wide) in paragraph at lines 325--327
+ [9]
+Overfull \hbox (23.53157pt too wide) in paragraph at lines 312--314
 \T1/ppl/m/n/12 where $\OML/cmm/m/it/12 ^^R[]$ \T1/ppl/m/n/12 is the in-ter-cept
  term, $\OML/cmm/m/it/12 ^^R[]; ^^R[]; [] ; ^^R[]$ \T1/ppl/m/n/12 are the weigh
 ts as-so-ci-ated with each fea-ture $\OML/cmm/m/it/12 x[]; x[]; [] ; x[]$
  []
 
-[10]
-<img//confusion-matrix.png, id=218, 622.12425pt x 340.8735pt>
+[10 <./img//logistic.png (PNG copy)>]
+<img//confusion-matrix.png, id=251, 622.12425pt x 340.8735pt>
 File: img//confusion-matrix.png Graphic file (type png)
 <use img//confusion-matrix.png>
-Package pdftex.def Info: img//confusion-matrix.png  used on input line 391.
+Package pdftex.def Info: img//confusion-matrix.png  used on input line 378.
 (pdftex.def)             Requested size: 256.07481pt x 140.31036pt.
  [11]
-<img//moving-average.png, id=229, 1013.58675pt x 416.15475pt>
+<img//moving-average.png, id=260, 1123.7985pt x 420.97275pt>
 File: img//moving-average.png Graphic file (type png)
 <use img//moving-average.png>
-Package pdftex.def Info: img//moving-average.png  used on input line 402.
-(pdftex.def)             Requested size: 409.72125pt x 168.22424pt.
-<img//prediction-difference.png, id=230, 1090.67474pt x 363.759pt>
+Package pdftex.def Info: img//moving-average.png  used on input line 389.
+(pdftex.def)             Requested size: 409.72125pt x 153.47713pt.
+ [12 <./img//confusion-matrix.png (PNG copy)>]
+<img//prediction-difference.png, id=269, 1090.67474pt x 363.759pt>
 File: img//prediction-difference.png Graphic file (type png)
 <use img//prediction-difference.png>
-Package pdftex.def Info: img//prediction-difference.png  used on input line 414
+Package pdftex.def Info: img//prediction-difference.png  used on input line 401
 .
 (pdftex.def)             Requested size: 409.72125pt x 136.64796pt.
- [12 <./img//confusion-matrix.png (PNG copy)> <./img//moving-average.png (PNG c
-opy)>]
-<img//Data_Screening(1).png, id=238, 220.4235pt x 144.2115pt>
+ [13 <./img//moving-average.png (PNG copy)> <./img//prediction-difference.png (
+PNG copy)>]
+<img//difference.png, id=278, 911.405pt x 363.3575pt>
+File: img//difference.png Graphic file (type png)
+<use img//difference.png>
+Package pdftex.def Info: img//difference.png  used on input line 417.
+(pdftex.def)             Requested size: 307.2929pt x 122.51419pt.
+ [14 <./img//difference.png>]
+Overfull \hbox (26.40242pt too wide) in paragraph at lines 445--447
+[]\T1/ppl/b/n/12 Stamina Fac-tor: dis-tance_run, speed_mph, rally_count, serve_
+depth, serve_width, re-turn_depth 
+ []
+
+[15]
+<img//LSTM.png, id=307, 602.25pt x 268.00125pt>
+File: img//LSTM.png Graphic file (type png)
+<use img//LSTM.png>
+Package pdftex.def Info: img//LSTM.png  used on input line 463.
+(pdftex.def)             Requested size: 409.72125pt x 182.33247pt.
+ [16 <./img//LSTM.png>] [17]
+<img//fluctuation.png, id=334, 1258.7025pt x 486.618pt>
+File: img//fluctuation.png Graphic file (type png)
+<use img//fluctuation.png>
+Package pdftex.def Info: img//fluctuation.png  used on input line 514.
+(pdftex.def)             Requested size: 512.14963pt x 197.99992pt.
+ [18 <./img//fluctuation.png (PNG copy)>]
+<img//range.png, id=343, 713.064pt x 413.74574pt>
+File: img//range.png Graphic file (type png)
+<use img//range.png>
+Package pdftex.def Info: img//range.png  used on input line 536.
+(pdftex.def)             Requested size: 307.2929pt x 178.30493pt.
+
+[19 <./img//range.png (PNG copy)>]
+LaTeX Font Info:    Trying to load font information for TS1+ppl on input line 5
+54.
+
+(c:/D/texlive/2023/texmf-dist/tex/latex/psnfss/ts1ppl.fd
+File: ts1ppl.fd 2001/06/04 font definitions for TS1/ppl.
+)
+<img//correlation.png, id=355, 940.7145pt x 410.13225pt>
+File: img//correlation.png Graphic file (type png)
+<use img//correlation.png>
+Package pdftex.def Info: img//correlation.png  used on input line 564.
+(pdftex.def)             Requested size: 435.3303pt x 189.79584pt.
+ [20 <./img//correlation.png (PNG copy)>]
+<img//Data_Screening(1).png, id=362, 220.4235pt x 144.2115pt>
 File: img//Data_Screening(1).png Graphic file (type png)
 <use img//Data_Screening(1).png>
-Package pdftex.def Info: img//Data_Screening(1).png  used on input line 428.
+Package pdftex.def Info: img//Data_Screening(1).png  used on input line 577.
 (pdftex.def)             Requested size: 230.46576pt x 150.78178pt.
-<img//Data_Screening(2).png, id=239, 211.554pt x 126.4725pt>
+<img//Data_Screening(2).png, id=363, 211.554pt x 126.4725pt>
 File: img//Data_Screening(2).png Graphic file (type png)
 <use img//Data_Screening(2).png>
-Package pdftex.def Info: img//Data_Screening(2).png  used on input line 430.
+Package pdftex.def Info: img//Data_Screening(2).png  used on input line 579.
 (pdftex.def)             Requested size: 230.46576pt x 137.78087pt.
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 444.
- [13 <./img//prediction-difference.png (PNG copy)> <./img//Data_Screening(1).pn
-g> <./img//Data_Screening(2).png>] [14] [15
+put line 584.
+ [21 <./img//Data_Screening(1).png> <./img//Data_Screening(2).png>] [22
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 513--520
+Underfull \hbox (badness 10000) in paragraph at lines 650--657
 
  []
 
@@ -997,10 +1026,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 513--520
 
 pdfTeX warning: pdflatex.exe (file ./AIreport.pdf): PDF inclusion: found PDF ve
 rsion <1.7>, but at most version <1.5> allowed
-<AIreport.pdf, id=282, 597.55246pt x 845.07718pt>
+<AIreport.pdf, id=412, 597.55246pt x 845.07718pt>
 File: AIreport.pdf Graphic file (type pdf)
 <use AIreport.pdf>
-Package pdftex.def Info: AIreport.pdf  used on input line 551.
+Package pdftex.def Info: AIreport.pdf  used on input line 688.
 (pdftex.def)             Requested size: 597.551pt x 845.07512pt.
 
 
@@ -1008,7 +1037,7 @@ pdfTeX warning: pdflatex.exe (file ./AIreport.pdf): PDF inclusion: found PDF ve
 rsion <1.7>, but at most version <1.5> allowed
 File: AIreport.pdf Graphic file (type pdf)
 <use AIreport.pdf>
-Package pdftex.def Info: AIreport.pdf  used on input line 551.
+Package pdftex.def Info: AIreport.pdf  used on input line 688.
 (pdftex.def)             Requested size: 597.551pt x 845.07512pt.
 
 
@@ -1018,99 +1047,102 @@ rsion <1.7>, but at most version <1.5> allowed
 
 pdfTeX warning: pdflatex.exe (file ./AIreport.pdf): PDF inclusion: found PDF ve
 rsion <1.7>, but at most version <1.5> allowed
-<AIreport.pdf, id=285, page=1, 597.55246pt x 845.07718pt>
+<AIreport.pdf, id=415, page=1, 597.55246pt x 845.07718pt>
 File: AIreport.pdf Graphic file (type pdf)
 <use AIreport.pdf, page 1>
-Package pdftex.def Info: AIreport.pdf , page1 used on input line 551.
+Package pdftex.def Info: AIreport.pdf , page1 used on input line 688.
 (pdftex.def)             Requested size: 597.551pt x 845.07512pt.
 File: AIreport.pdf Graphic file (type pdf)
 <use AIreport.pdf, page 1>
-Package pdftex.def Info: AIreport.pdf , page1 used on input line 551.
+Package pdftex.def Info: AIreport.pdf , page1 used on input line 688.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
-[16
+[23
 
 ]
 File: AIreport.pdf Graphic file (type pdf)
 <use AIreport.pdf, page 1>
-Package pdftex.def Info: AIreport.pdf , page1 used on input line 551.
+Package pdftex.def Info: AIreport.pdf , page1 used on input line 688.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
 File: AIreport.pdf Graphic file (type pdf)
 <use AIreport.pdf, page 1>
-Package pdftex.def Info: AIreport.pdf , page1 used on input line 551.
+Package pdftex.def Info: AIreport.pdf , page1 used on input line 688.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
 File: AIreport.pdf Graphic file (type pdf)
 <use AIreport.pdf, page 1>
-Package pdftex.def Info: AIreport.pdf , page1 used on input line 551.
+Package pdftex.def Info: AIreport.pdf , page1 used on input line 688.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
- [17 <./AIreport.pdf>]
+ [24 <./AIreport.pdf>]
 
 pdfTeX warning: pdflatex.exe (file ./AIreport.pdf): PDF inclusion: found PDF ve
 rsion <1.7>, but at most version <1.5> allowed
-<AIreport.pdf, id=339, page=2, 597.55246pt x 845.07718pt>
+<AIreport.pdf, id=469, page=2, 597.55246pt x 845.07718pt>
 File: AIreport.pdf Graphic file (type pdf)
 <use AIreport.pdf, page 2>
-Package pdftex.def Info: AIreport.pdf , page2 used on input line 551.
+Package pdftex.def Info: AIreport.pdf , page2 used on input line 688.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
 File: AIreport.pdf Graphic file (type pdf)
 <use AIreport.pdf, page 2>
-Package pdftex.def Info: AIreport.pdf , page2 used on input line 551.
+Package pdftex.def Info: AIreport.pdf , page2 used on input line 688.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
 File: AIreport.pdf Graphic file (type pdf)
 <use AIreport.pdf, page 2>
-Package pdftex.def Info: AIreport.pdf , page2 used on input line 551.
+Package pdftex.def Info: AIreport.pdf , page2 used on input line 688.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
-[18 <./AIreport.pdf>]
+[25 <./AIreport.pdf>]
 
 pdfTeX warning: pdflatex.exe (file ./AIreport.pdf): PDF inclusion: found PDF ve
 rsion <1.7>, but at most version <1.5> allowed
-<AIreport.pdf, id=345, page=3, 597.55246pt x 845.07718pt>
+<AIreport.pdf, id=476, page=3, 597.55246pt x 845.07718pt>
 File: AIreport.pdf Graphic file (type pdf)
 <use AIreport.pdf, page 3>
-Package pdftex.def Info: AIreport.pdf , page3 used on input line 551.
+Package pdftex.def Info: AIreport.pdf , page3 used on input line 688.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
 File: AIreport.pdf Graphic file (type pdf)
 <use AIreport.pdf, page 3>
-Package pdftex.def Info: AIreport.pdf , page3 used on input line 551.
+Package pdftex.def Info: AIreport.pdf , page3 used on input line 688.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
 File: AIreport.pdf Graphic file (type pdf)
 <use AIreport.pdf, page 3>
-Package pdftex.def Info: AIreport.pdf , page3 used on input line 551.
+Package pdftex.def Info: AIreport.pdf , page3 used on input line 688.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
-[19 <./AIreport.pdf>] 
+[26 <./AIreport.pdf>] 
 enddocument/afterlastpage: lastpage setting LastPage.
 (./2102199.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `2102199.out' has not changed.
-(rerunfilecheck)             Checksum: 827C349DDCE72169F68153D066B55E5B;3798.
+(rerunfilecheck)             Checksum: 2BC57168346C80FE0889B94F88F8D526;5674.
  ) 
 Here is how much of TeX's memory you used:
- 18850 strings out of 476025
- 301943 string characters out of 5792518
- 1869382 words of memory out of 5000000
- 38863 multiletter control sequences out of 15000+600000
- 540169 words of font info for 82 fonts, out of 8000000 for 9000
+ 18961 strings out of 476025
+ 303567 string characters out of 5792518
+ 1868382 words of memory out of 5000000
+ 38930 multiletter control sequences out of 15000+600000
+ 542700 words of font info for 90 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 78i,17n,81p,848b,605s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 78i,17n,81p,1447b,605s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/D/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/D
-/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/D/texliv
-e/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/D/texlive/2023/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><c:/D/texlive/2023/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/D/texlive/2023/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmr12.pfb><c:/D/texlive/2023/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmr6.pfb><c:/D/texlive/2023/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmr8.pfb><c:/D/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmsy10.pfb><c:/D/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.p
-fb><c:/D/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/D
-/texlive/2023/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb><c:/D/texlive/2023
-/texmf-dist/fonts/type1/urw/palatino/uplbi8a.pfb><c:/D/texlive/2023/texmf-dist/
-fonts/type1/urw/palatino/uplr8a.pfb><c:/D/texlive/2023/texmf-dist/fonts/type1/u
-rw/palatino/uplri8a.pfb>
-Output written on 2102199.pdf (19 pages, 1829858 bytes).
+/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb><c:/D/texlive
+/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/D/texlive/2023/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/D/texlive/2023/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/D/texlive/2023/texmf-dist/font
+s/type1/public/amsfonts/cm/cmmi6.pfb><c:/D/texlive/2023/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmmi8.pfb><c:/D/texlive/2023/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmr10.pfb><c:/D/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmr12.pfb><c:/D/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.
+pfb><c:/D/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/D
+/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/D/texliv
+e/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb><c:/D/texlive/2023/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/D/texlive/2023/texmf-dis
+t/fonts/type1/urw/palatino/uplb8a.pfb><c:/D/texlive/2023/texmf-dist/fonts/type1
+/urw/palatino/uplbi8a.pfb><c:/D/texlive/2023/texmf-dist/fonts/type1/urw/palatin
+o/uplr8a.pfb><c:/D/texlive/2023/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb
+>
+Output written on 2102199.pdf (26 pages, 2916048 bytes).
 PDF statistics:
- 438 PDF objects out of 1000 (max. 8388607)
- 357 compressed objects within 4 object streams
- 86 named destinations out of 1000 (max. 500000)
- 262 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 587 PDF objects out of 1000 (max. 8388607)
+ 484 compressed objects within 5 object streams
+ 123 named destinations out of 1000 (max. 500000)
+ 343 words of extra memory for PDF output out of 10000 (max. 10000000)
 
