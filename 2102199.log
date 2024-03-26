@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.5.26)  5 FEB 2024 23:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.5.26)  6 FEB 2024 07:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -871,7 +871,13 @@ F (HO)
 Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
 )
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
-)) [1
+))
+Overfull \hbox (10.7168pt too wide) in paragraph at lines 56--57
+[]\T1/ppl/m/n/12 The MoQ model's ro-bust-ness is fur-ther val-i-dated through a
+p-pli-ca-tion to an ex-ter-nal dataset^^Vthe
+ []
+
+[1
 
 {c:/D/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/D/texlive/2
 023/texmf-dist/fonts/enc/dvips/base/8r.enc}] (./2102199.toc
@@ -889,135 +895,133 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \openout5 = `2102199.toc'.
 
  [2]
-<img//carlos-alcaraz.jpg, id=162, 2055.68pt x 1156.32pt>
+<img//carlos-alcaraz.jpg, id=178, 2055.68pt x 1156.32pt>
 File: img//carlos-alcaraz.jpg Graphic file (type jpg)
 <use img//carlos-alcaraz.jpg>
-Package pdftex.def Info: img//carlos-alcaraz.jpg  used on input line 81.
+Package pdftex.def Info: img//carlos-alcaraz.jpg  used on input line 89.
 (pdftex.def)             Requested size: 243.27028pt x 136.82921pt.
-<img//data-given.png, id=165, 517.18219pt x 517.18219pt>
+<img//data-given.png, id=181, 517.18219pt x 517.18219pt>
 File: img//data-given.png Graphic file (type png)
 <use img//data-given.png>
-Package pdftex.def Info: img//data-given.png  used on input line 87.
+Package pdftex.def Info: img//data-given.png  used on input line 95.
 (pdftex.def)             Requested size: 138.28085pt x 138.27582pt.
  [3
 
  <./img//carlos-alcaraz.jpg> <./img//data-given.png (PNG copy)>]
-<img//sliding-window.png, id=176, 1291.224pt x 467.94826pt>
+<img//sliding-window.png, id=191, 1291.224pt x 467.94826pt>
 File: img//sliding-window.png Graphic file (type png)
 <use img//sliding-window.png>
-Package pdftex.def Info: img//sliding-window.png  used on input line 113.
-(pdftex.def)             Requested size: 435.3303pt x 157.76506pt.
+Package pdftex.def Info: img//sliding-window.png  used on input line 121.
+(pdftex.def)             Requested size: 389.2309pt x 141.05675pt.
  [4 <./img//sliding-window.png (PNG copy)>]
-<img//momentum-model.png, id=186, 1087.6635pt x 626.94225pt>
+<img//momentum-model.png, id=201, 1087.6635pt x 626.94225pt>
 File: img//momentum-model.png Graphic file (type png)
 <use img//momentum-model.png>
-Package pdftex.def Info: img//momentum-model.png  used on input line 126.
-(pdftex.def)             Requested size: 512.14963pt x 295.21774pt.
+Package pdftex.def Info: img//momentum-model.png  used on input line 134.
+(pdftex.def)             Requested size: 409.72125pt x 236.16463pt.
  [5 <./img//momentum-model.png (PNG copy)>]
-<img//Flow_Chart.png, id=194, 914.66719pt x 385.44pt>
-File: img//Flow_Chart.png Graphic file (type png)
-<use img//Flow_Chart.png>
-Package pdftex.def Info: img//Flow_Chart.png  used on input line 148.
-(pdftex.def)             Requested size: 460.93153pt x 194.23691pt.
- [6 <./img//Flow_Chart.png>]
-Overfull \hbox (0.50563pt too wide) in paragraph at lines 218--219
+<img//work.png, id=209, 895.345pt x 653.44125pt>
+File: img//work.png Graphic file (type png)
+<use img//work.png>
+Package pdftex.def Info: img//work.png  used on input line 156.
+(pdftex.def)             Requested size: 409.72125pt x 299.03119pt.
+ [6 <./img//work.png (PNG copy)>] [7]
+Overfull \hbox (0.50563pt too wide) in paragraph at lines 224--225
 []\T1/ppl/m/n/12 The data pro-vided by the prob-lem (\T1/ppl/m/it/12 Wim-ble-do
 n_featured_matches.csv\T1/ppl/m/n/12 ) is a com-pre-hen-sive dataset
  []
 
-[7] [8]
-<img//logistic.png, id=231, 1565.85pt x 883.04906pt>
+[8]
+<img//logistic.png, id=247, 1565.85pt x 883.04906pt>
 File: img//logistic.png Graphic file (type png)
 <use img//logistic.png>
-Package pdftex.def Info: img//logistic.png  used on input line 290.
+Package pdftex.def Info: img//logistic.png  used on input line 296.
 (pdftex.def)             Requested size: 460.93153pt x 259.93129pt.
  [9]
-Overfull \hbox (23.53157pt too wide) in paragraph at lines 312--314
+Overfull \hbox (23.53157pt too wide) in paragraph at lines 318--320
 \T1/ppl/m/n/12 where $\OML/cmm/m/it/12 ^^R[]$ \T1/ppl/m/n/12 is the in-ter-cept
  term, $\OML/cmm/m/it/12 ^^R[]; ^^R[]; [] ; ^^R[]$ \T1/ppl/m/n/12 are the weigh
 ts as-so-ci-ated with each fea-ture $\OML/cmm/m/it/12 x[]; x[]; [] ; x[]$
  []
 
 [10 <./img//logistic.png (PNG copy)>]
-<img//confusion-matrix.png, id=251, 622.12425pt x 340.8735pt>
+<img//confusion-matrix.png, id=266, 622.12425pt x 340.8735pt>
 File: img//confusion-matrix.png Graphic file (type png)
 <use img//confusion-matrix.png>
-Package pdftex.def Info: img//confusion-matrix.png  used on input line 378.
+Package pdftex.def Info: img//confusion-matrix.png  used on input line 384.
 (pdftex.def)             Requested size: 256.07481pt x 140.31036pt.
  [11]
-<img//moving-average.png, id=260, 1123.7985pt x 420.97275pt>
+<img//moving-average.png, id=275, 1123.7985pt x 420.97275pt>
 File: img//moving-average.png Graphic file (type png)
 <use img//moving-average.png>
-Package pdftex.def Info: img//moving-average.png  used on input line 389.
+Package pdftex.def Info: img//moving-average.png  used on input line 395.
 (pdftex.def)             Requested size: 409.72125pt x 153.47713pt.
  [12 <./img//confusion-matrix.png (PNG copy)>]
-<img//prediction-difference.png, id=269, 1090.67474pt x 363.759pt>
+<img//prediction-difference.png, id=284, 1090.67474pt x 363.759pt>
 File: img//prediction-difference.png Graphic file (type png)
 <use img//prediction-difference.png>
-Package pdftex.def Info: img//prediction-difference.png  used on input line 401
+Package pdftex.def Info: img//prediction-difference.png  used on input line 407
 .
 (pdftex.def)             Requested size: 409.72125pt x 136.64796pt.
  [13 <./img//moving-average.png (PNG copy)> <./img//prediction-difference.png (
 PNG copy)>]
-<img//difference.png, id=278, 911.405pt x 363.3575pt>
+<img//difference.png, id=293, 911.405pt x 363.3575pt>
 File: img//difference.png Graphic file (type png)
 <use img//difference.png>
-Package pdftex.def Info: img//difference.png  used on input line 417.
+Package pdftex.def Info: img//difference.png  used on input line 423.
 (pdftex.def)             Requested size: 307.2929pt x 122.51419pt.
  [14 <./img//difference.png>]
-Overfull \hbox (26.40242pt too wide) in paragraph at lines 445--447
+Overfull \hbox (26.40242pt too wide) in paragraph at lines 451--453
 []\T1/ppl/b/n/12 Stamina Fac-tor: dis-tance_run, speed_mph, rally_count, serve_
 depth, serve_width, re-turn_depth 
  []
 
 [15]
-<img//LSTM.png, id=307, 602.25pt x 268.00125pt>
+<img//LSTM.png, id=322, 1032.85875pt x 633.36626pt>
 File: img//LSTM.png Graphic file (type png)
 <use img//LSTM.png>
-Package pdftex.def Info: img//LSTM.png  used on input line 463.
-(pdftex.def)             Requested size: 409.72125pt x 182.33247pt.
- [16 <./img//LSTM.png>] [17]
-<img//fluctuation.png, id=334, 1258.7025pt x 486.618pt>
+Package pdftex.def Info: img//LSTM.png  used on input line 469.
+(pdftex.def)             Requested size: 409.72125pt x 251.24484pt.
+ [16 <./img//LSTM.png (PNG copy)>] [17]
+<img//fluctuation.png, id=348, 1258.7025pt x 486.618pt>
 File: img//fluctuation.png Graphic file (type png)
 <use img//fluctuation.png>
-Package pdftex.def Info: img//fluctuation.png  used on input line 514.
+Package pdftex.def Info: img//fluctuation.png  used on input line 520.
 (pdftex.def)             Requested size: 512.14963pt x 197.99992pt.
  [18 <./img//fluctuation.png (PNG copy)>]
-<img//range.png, id=343, 713.064pt x 413.74574pt>
+<img//range.png, id=357, 713.064pt x 413.74574pt>
 File: img//range.png Graphic file (type png)
 <use img//range.png>
-Package pdftex.def Info: img//range.png  used on input line 536.
+Package pdftex.def Info: img//range.png  used on input line 542.
 (pdftex.def)             Requested size: 307.2929pt x 178.30493pt.
-
-[19 <./img//range.png (PNG copy)>]
+ [19 <./img//range.png (PNG copy)>]
 LaTeX Font Info:    Trying to load font information for TS1+ppl on input line 5
-54.
+60.
 
 (c:/D/texlive/2023/texmf-dist/tex/latex/psnfss/ts1ppl.fd
 File: ts1ppl.fd 2001/06/04 font definitions for TS1/ppl.
 )
-<img//correlation.png, id=355, 940.7145pt x 410.13225pt>
+<img//correlation.png, id=369, 940.7145pt x 410.13225pt>
 File: img//correlation.png Graphic file (type png)
 <use img//correlation.png>
-Package pdftex.def Info: img//correlation.png  used on input line 564.
+Package pdftex.def Info: img//correlation.png  used on input line 570.
 (pdftex.def)             Requested size: 435.3303pt x 189.79584pt.
  [20 <./img//correlation.png (PNG copy)>]
-<img//Data_Screening(1).png, id=362, 220.4235pt x 144.2115pt>
-File: img//Data_Screening(1).png Graphic file (type png)
-<use img//Data_Screening(1).png>
-Package pdftex.def Info: img//Data_Screening(1).png  used on input line 577.
-(pdftex.def)             Requested size: 230.46576pt x 150.78178pt.
-<img//Data_Screening(2).png, id=363, 211.554pt x 126.4725pt>
-File: img//Data_Screening(2).png Graphic file (type png)
-<use img//Data_Screening(2).png>
-Package pdftex.def Info: img//Data_Screening(2).png  used on input line 579.
-(pdftex.def)             Requested size: 230.46576pt x 137.78087pt.
-Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 584.
- [21 <./img//Data_Screening(1).png> <./img//Data_Screening(2).png>] [22
+<img//corrected.png, id=378, 805.50937pt x 235.37938pt>
+File: img//corrected.png Graphic file (type png)
+<use img//corrected.png>
+Package pdftex.def Info: img//corrected.png  used on input line 624.
+(pdftex.def)             Requested size: 435.3303pt x 127.20712pt.
+ [21]
+<img//new.png, id=389, 1045.40562pt x 431.11063pt>
+File: img//new.png Graphic file (type png)
+<use img//new.png>
+Package pdftex.def Info: img//new.png  used on input line 638.
+(pdftex.def)             Requested size: 435.3303pt x 179.52591pt.
+ [22 <./img//corrected.png (PNG copy)> <./img//new.png (PNG copy)>] [23] [24
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 650--657
+Underfull \hbox (badness 10000) in paragraph at lines 693--698
 
  []
 
@@ -1026,10 +1030,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 650--657
 
 pdfTeX warning: pdflatex.exe (file ./AIreport.pdf): PDF inclusion: found PDF ve
 rsion <1.7>, but at most version <1.5> allowed
-<AIreport.pdf, id=412, 597.55246pt x 845.07718pt>
+<AIreport.pdf, id=438, 597.55246pt x 845.07718pt>
 File: AIreport.pdf Graphic file (type pdf)
 <use AIreport.pdf>
-Package pdftex.def Info: AIreport.pdf  used on input line 688.
+Package pdftex.def Info: AIreport.pdf  used on input line 728.
 (pdftex.def)             Requested size: 597.551pt x 845.07512pt.
 
 
@@ -1037,7 +1041,7 @@ pdfTeX warning: pdflatex.exe (file ./AIreport.pdf): PDF inclusion: found PDF ve
 rsion <1.7>, but at most version <1.5> allowed
 File: AIreport.pdf Graphic file (type pdf)
 <use AIreport.pdf>
-Package pdftex.def Info: AIreport.pdf  used on input line 688.
+Package pdftex.def Info: AIreport.pdf  used on input line 728.
 (pdftex.def)             Requested size: 597.551pt x 845.07512pt.
 
 
@@ -1047,81 +1051,370 @@ rsion <1.7>, but at most version <1.5> allowed
 
 pdfTeX warning: pdflatex.exe (file ./AIreport.pdf): PDF inclusion: found PDF ve
 rsion <1.7>, but at most version <1.5> allowed
-<AIreport.pdf, id=415, page=1, 597.55246pt x 845.07718pt>
+<AIreport.pdf, id=441, page=1, 597.55246pt x 845.07718pt>
 File: AIreport.pdf Graphic file (type pdf)
 <use AIreport.pdf, page 1>
-Package pdftex.def Info: AIreport.pdf , page1 used on input line 688.
+Package pdftex.def Info: AIreport.pdf , page1 used on input line 728.
 (pdftex.def)             Requested size: 597.551pt x 845.07512pt.
 File: AIreport.pdf Graphic file (type pdf)
 <use AIreport.pdf, page 1>
-Package pdftex.def Info: AIreport.pdf , page1 used on input line 688.
+Package pdftex.def Info: AIreport.pdf , page1 used on input line 728.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
-[23
+[25
 
 ]
 File: AIreport.pdf Graphic file (type pdf)
 <use AIreport.pdf, page 1>
-Package pdftex.def Info: AIreport.pdf , page1 used on input line 688.
+Package pdftex.def Info: AIreport.pdf , page1 used on input line 728.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
 File: AIreport.pdf Graphic file (type pdf)
 <use AIreport.pdf, page 1>
-Package pdftex.def Info: AIreport.pdf , page1 used on input line 688.
+Package pdftex.def Info: AIreport.pdf , page1 used on input line 728.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
 File: AIreport.pdf Graphic file (type pdf)
 <use AIreport.pdf, page 1>
-Package pdftex.def Info: AIreport.pdf , page1 used on input line 688.
+Package pdftex.def Info: AIreport.pdf , page1 used on input line 728.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
- [24 <./AIreport.pdf>]
+ [26 <./AIreport.pdf>]
 
 pdfTeX warning: pdflatex.exe (file ./AIreport.pdf): PDF inclusion: found PDF ve
 rsion <1.7>, but at most version <1.5> allowed
-<AIreport.pdf, id=469, page=2, 597.55246pt x 845.07718pt>
+<AIreport.pdf, id=507, page=2, 597.55246pt x 845.07718pt>
 File: AIreport.pdf Graphic file (type pdf)
 <use AIreport.pdf, page 2>
-Package pdftex.def Info: AIreport.pdf , page2 used on input line 688.
+Package pdftex.def Info: AIreport.pdf , page2 used on input line 728.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
 File: AIreport.pdf Graphic file (type pdf)
 <use AIreport.pdf, page 2>
-Package pdftex.def Info: AIreport.pdf , page2 used on input line 688.
+Package pdftex.def Info: AIreport.pdf , page2 used on input line 728.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
 File: AIreport.pdf Graphic file (type pdf)
 <use AIreport.pdf, page 2>
-Package pdftex.def Info: AIreport.pdf , page2 used on input line 688.
+Package pdftex.def Info: AIreport.pdf , page2 used on input line 728.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
-[25 <./AIreport.pdf>]
+[27 <./AIreport.pdf>]
 
 pdfTeX warning: pdflatex.exe (file ./AIreport.pdf): PDF inclusion: found PDF ve
 rsion <1.7>, but at most version <1.5> allowed
-<AIreport.pdf, id=476, page=3, 597.55246pt x 845.07718pt>
+<AIreport.pdf, id=513, page=3, 597.55246pt x 845.07718pt>
 File: AIreport.pdf Graphic file (type pdf)
 <use AIreport.pdf, page 3>
-Package pdftex.def Info: AIreport.pdf , page3 used on input line 688.
+Package pdftex.def Info: AIreport.pdf , page3 used on input line 728.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
 File: AIreport.pdf Graphic file (type pdf)
 <use AIreport.pdf, page 3>
-Package pdftex.def Info: AIreport.pdf , page3 used on input line 688.
+Package pdftex.def Info: AIreport.pdf , page3 used on input line 728.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
 File: AIreport.pdf Graphic file (type pdf)
 <use AIreport.pdf, page 3>
-Package pdftex.def Info: AIreport.pdf , page3 used on input line 688.
+Package pdftex.def Info: AIreport.pdf , page3 used on input line 728.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
-[26 <./AIreport.pdf>] 
+[28 <./AIreport.pdf>]
+
+pdfTeX warning: pdflatex.exe (file ./AIreport.pdf): PDF inclusion: found PDF ve
+rsion <1.7>, but at most version <1.5> allowed
+<AIreport.pdf, id=519, page=4, 597.55246pt x 845.07718pt>
+File: AIreport.pdf Graphic file (type pdf)
+<use AIreport.pdf, page 4>
+Package pdftex.def Info: AIreport.pdf , page4 used on input line 728.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+File: AIreport.pdf Graphic file (type pdf)
+<use AIreport.pdf, page 4>
+Package pdftex.def Info: AIreport.pdf , page4 used on input line 728.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+File: AIreport.pdf Graphic file (type pdf)
+<use AIreport.pdf, page 4>
+Package pdftex.def Info: AIreport.pdf , page4 used on input line 728.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+[29 <./AIreport.pdf>]
+
+pdfTeX warning: pdflatex.exe (file ./AIreport.pdf): PDF inclusion: found PDF ve
+rsion <1.7>, but at most version <1.5> allowed
+<AIreport.pdf, id=525, page=5, 597.55246pt x 845.07718pt>
+File: AIreport.pdf Graphic file (type pdf)
+<use AIreport.pdf, page 5>
+Package pdftex.def Info: AIreport.pdf , page5 used on input line 728.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+File: AIreport.pdf Graphic file (type pdf)
+<use AIreport.pdf, page 5>
+Package pdftex.def Info: AIreport.pdf , page5 used on input line 728.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+File: AIreport.pdf Graphic file (type pdf)
+<use AIreport.pdf, page 5>
+Package pdftex.def Info: AIreport.pdf , page5 used on input line 728.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+[30 <./AIreport.pdf>]
+
+pdfTeX warning: pdflatex.exe (file ./AIreport.pdf): PDF inclusion: found PDF ve
+rsion <1.7>, but at most version <1.5> allowed
+<AIreport.pdf, id=532, page=6, 597.55246pt x 845.07718pt>
+File: AIreport.pdf Graphic file (type pdf)
+<use AIreport.pdf, page 6>
+Package pdftex.def Info: AIreport.pdf , page6 used on input line 728.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+File: AIreport.pdf Graphic file (type pdf)
+<use AIreport.pdf, page 6>
+Package pdftex.def Info: AIreport.pdf , page6 used on input line 728.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+File: AIreport.pdf Graphic file (type pdf)
+<use AIreport.pdf, page 6>
+Package pdftex.def Info: AIreport.pdf , page6 used on input line 728.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+[31 <./AIreport.pdf>]
+
+pdfTeX warning: pdflatex.exe (file ./AIreport.pdf): PDF inclusion: found PDF ve
+rsion <1.7>, but at most version <1.5> allowed
+<AIreport.pdf, id=539, page=7, 597.55246pt x 845.07718pt>
+File: AIreport.pdf Graphic file (type pdf)
+<use AIreport.pdf, page 7>
+Package pdftex.def Info: AIreport.pdf , page7 used on input line 728.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+File: AIreport.pdf Graphic file (type pdf)
+<use AIreport.pdf, page 7>
+Package pdftex.def Info: AIreport.pdf , page7 used on input line 728.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+File: AIreport.pdf Graphic file (type pdf)
+<use AIreport.pdf, page 7>
+Package pdftex.def Info: AIreport.pdf , page7 used on input line 728.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+[32 <./AIreport.pdf>]
+
+pdfTeX warning: pdflatex.exe (file ./AIreport.pdf): PDF inclusion: found PDF ve
+rsion <1.7>, but at most version <1.5> allowed
+<AIreport.pdf, id=545, page=8, 597.55246pt x 845.07718pt>
+File: AIreport.pdf Graphic file (type pdf)
+<use AIreport.pdf, page 8>
+Package pdftex.def Info: AIreport.pdf , page8 used on input line 728.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+File: AIreport.pdf Graphic file (type pdf)
+<use AIreport.pdf, page 8>
+Package pdftex.def Info: AIreport.pdf , page8 used on input line 728.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+File: AIreport.pdf Graphic file (type pdf)
+<use AIreport.pdf, page 8>
+Package pdftex.def Info: AIreport.pdf , page8 used on input line 728.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+[33 <./AIreport.pdf>]
+
+pdfTeX warning: pdflatex.exe (file ./AIreport.pdf): PDF inclusion: found PDF ve
+rsion <1.7>, but at most version <1.5> allowed
+<AIreport.pdf, id=551, page=9, 597.55246pt x 845.07718pt>
+File: AIreport.pdf Graphic file (type pdf)
+<use AIreport.pdf, page 9>
+Package pdftex.def Info: AIreport.pdf , page9 used on input line 728.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+File: AIreport.pdf Graphic file (type pdf)
+<use AIreport.pdf, page 9>
+Package pdftex.def Info: AIreport.pdf , page9 used on input line 728.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+File: AIreport.pdf Graphic file (type pdf)
+<use AIreport.pdf, page 9>
+Package pdftex.def Info: AIreport.pdf , page9 used on input line 728.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+[34 <./AIreport.pdf>]
+
+pdfTeX warning: pdflatex.exe (file ./AIreport.pdf): PDF inclusion: found PDF ve
+rsion <1.7>, but at most version <1.5> allowed
+<AIreport.pdf, id=557, page=10, 597.55246pt x 845.07718pt>
+File: AIreport.pdf Graphic file (type pdf)
+<use AIreport.pdf, page 10>
+Package pdftex.def Info: AIreport.pdf , page10 used on input line 728.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+File: AIreport.pdf Graphic file (type pdf)
+<use AIreport.pdf, page 10>
+Package pdftex.def Info: AIreport.pdf , page10 used on input line 728.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+File: AIreport.pdf Graphic file (type pdf)
+<use AIreport.pdf, page 10>
+Package pdftex.def Info: AIreport.pdf , page10 used on input line 728.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+[35 <./AIreport.pdf>]
+
+pdfTeX warning: pdflatex.exe (file ./AIreport.pdf): PDF inclusion: found PDF ve
+rsion <1.7>, but at most version <1.5> allowed
+<AIreport.pdf, id=563, page=11, 597.55246pt x 845.07718pt>
+File: AIreport.pdf Graphic file (type pdf)
+<use AIreport.pdf, page 11>
+Package pdftex.def Info: AIreport.pdf , page11 used on input line 728.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+File: AIreport.pdf Graphic file (type pdf)
+<use AIreport.pdf, page 11>
+Package pdftex.def Info: AIreport.pdf , page11 used on input line 728.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+File: AIreport.pdf Graphic file (type pdf)
+<use AIreport.pdf, page 11>
+Package pdftex.def Info: AIreport.pdf , page11 used on input line 728.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+[36 <./AIreport.pdf>]
+
+pdfTeX warning: pdflatex.exe (file ./AIreport.pdf): PDF inclusion: found PDF ve
+rsion <1.7>, but at most version <1.5> allowed
+<AIreport.pdf, id=569, page=12, 597.55246pt x 845.07718pt>
+File: AIreport.pdf Graphic file (type pdf)
+<use AIreport.pdf, page 12>
+Package pdftex.def Info: AIreport.pdf , page12 used on input line 728.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+File: AIreport.pdf Graphic file (type pdf)
+<use AIreport.pdf, page 12>
+Package pdftex.def Info: AIreport.pdf , page12 used on input line 728.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+File: AIreport.pdf Graphic file (type pdf)
+<use AIreport.pdf, page 12>
+Package pdftex.def Info: AIreport.pdf , page12 used on input line 728.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+[37 <./AIreport.pdf>]
+
+pdfTeX warning: pdflatex.exe (file ./AIreport.pdf): PDF inclusion: found PDF ve
+rsion <1.7>, but at most version <1.5> allowed
+<AIreport.pdf, id=576, page=13, 597.55246pt x 845.07718pt>
+File: AIreport.pdf Graphic file (type pdf)
+<use AIreport.pdf, page 13>
+Package pdftex.def Info: AIreport.pdf , page13 used on input line 728.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+File: AIreport.pdf Graphic file (type pdf)
+<use AIreport.pdf, page 13>
+Package pdftex.def Info: AIreport.pdf , page13 used on input line 728.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+File: AIreport.pdf Graphic file (type pdf)
+<use AIreport.pdf, page 13>
+Package pdftex.def Info: AIreport.pdf , page13 used on input line 728.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+[38 <./AIreport.pdf>]
+
+pdfTeX warning: pdflatex.exe (file ./AIreport.pdf): PDF inclusion: found PDF ve
+rsion <1.7>, but at most version <1.5> allowed
+<AIreport.pdf, id=582, page=14, 597.55246pt x 845.07718pt>
+File: AIreport.pdf Graphic file (type pdf)
+<use AIreport.pdf, page 14>
+Package pdftex.def Info: AIreport.pdf , page14 used on input line 728.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+File: AIreport.pdf Graphic file (type pdf)
+<use AIreport.pdf, page 14>
+Package pdftex.def Info: AIreport.pdf , page14 used on input line 728.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+File: AIreport.pdf Graphic file (type pdf)
+<use AIreport.pdf, page 14>
+Package pdftex.def Info: AIreport.pdf , page14 used on input line 728.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+[39 <./AIreport.pdf>]
+
+pdfTeX warning: pdflatex.exe (file ./AIreport.pdf): PDF inclusion: found PDF ve
+rsion <1.7>, but at most version <1.5> allowed
+<AIreport.pdf, id=588, page=15, 597.55246pt x 845.07718pt>
+File: AIreport.pdf Graphic file (type pdf)
+<use AIreport.pdf, page 15>
+Package pdftex.def Info: AIreport.pdf , page15 used on input line 728.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+File: AIreport.pdf Graphic file (type pdf)
+<use AIreport.pdf, page 15>
+Package pdftex.def Info: AIreport.pdf , page15 used on input line 728.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+File: AIreport.pdf Graphic file (type pdf)
+<use AIreport.pdf, page 15>
+Package pdftex.def Info: AIreport.pdf , page15 used on input line 728.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+[40 <./AIreport.pdf>]
+
+pdfTeX warning: pdflatex.exe (file ./AIreport.pdf): PDF inclusion: found PDF ve
+rsion <1.7>, but at most version <1.5> allowed
+<AIreport.pdf, id=594, page=16, 597.55246pt x 845.07718pt>
+File: AIreport.pdf Graphic file (type pdf)
+<use AIreport.pdf, page 16>
+Package pdftex.def Info: AIreport.pdf , page16 used on input line 728.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+File: AIreport.pdf Graphic file (type pdf)
+<use AIreport.pdf, page 16>
+Package pdftex.def Info: AIreport.pdf , page16 used on input line 728.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+File: AIreport.pdf Graphic file (type pdf)
+<use AIreport.pdf, page 16>
+Package pdftex.def Info: AIreport.pdf , page16 used on input line 728.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+[41 <./AIreport.pdf>]
+
+pdfTeX warning: pdflatex.exe (file ./AIreport.pdf): PDF inclusion: found PDF ve
+rsion <1.7>, but at most version <1.5> allowed
+<AIreport.pdf, id=600, page=17, 597.55246pt x 845.07718pt>
+File: AIreport.pdf Graphic file (type pdf)
+<use AIreport.pdf, page 17>
+Package pdftex.def Info: AIreport.pdf , page17 used on input line 728.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+File: AIreport.pdf Graphic file (type pdf)
+<use AIreport.pdf, page 17>
+Package pdftex.def Info: AIreport.pdf , page17 used on input line 728.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+File: AIreport.pdf Graphic file (type pdf)
+<use AIreport.pdf, page 17>
+Package pdftex.def Info: AIreport.pdf , page17 used on input line 728.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+[42 <./AIreport.pdf>]
+
+pdfTeX warning: pdflatex.exe (file ./AIreport.pdf): PDF inclusion: found PDF ve
+rsion <1.7>, but at most version <1.5> allowed
+<AIreport.pdf, id=606, page=18, 597.55246pt x 845.07718pt>
+File: AIreport.pdf Graphic file (type pdf)
+<use AIreport.pdf, page 18>
+Package pdftex.def Info: AIreport.pdf , page18 used on input line 728.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+File: AIreport.pdf Graphic file (type pdf)
+<use AIreport.pdf, page 18>
+Package pdftex.def Info: AIreport.pdf , page18 used on input line 728.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+File: AIreport.pdf Graphic file (type pdf)
+<use AIreport.pdf, page 18>
+Package pdftex.def Info: AIreport.pdf , page18 used on input line 728.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+[43 <./AIreport.pdf>]
+
+pdfTeX warning: pdflatex.exe (file ./AIreport.pdf): PDF inclusion: found PDF ve
+rsion <1.7>, but at most version <1.5> allowed
+<AIreport.pdf, id=613, page=19, 597.55246pt x 845.07718pt>
+File: AIreport.pdf Graphic file (type pdf)
+<use AIreport.pdf, page 19>
+Package pdftex.def Info: AIreport.pdf , page19 used on input line 728.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+File: AIreport.pdf Graphic file (type pdf)
+<use AIreport.pdf, page 19>
+Package pdftex.def Info: AIreport.pdf , page19 used on input line 728.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+File: AIreport.pdf Graphic file (type pdf)
+<use AIreport.pdf, page 19>
+Package pdftex.def Info: AIreport.pdf , page19 used on input line 728.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+[44 <./AIreport.pdf>]
+
+pdfTeX warning: pdflatex.exe (file ./AIreport.pdf): PDF inclusion: found PDF ve
+rsion <1.7>, but at most version <1.5> allowed
+<AIreport.pdf, id=620, page=20, 597.55246pt x 845.07718pt>
+File: AIreport.pdf Graphic file (type pdf)
+<use AIreport.pdf, page 20>
+Package pdftex.def Info: AIreport.pdf , page20 used on input line 728.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+File: AIreport.pdf Graphic file (type pdf)
+<use AIreport.pdf, page 20>
+Package pdftex.def Info: AIreport.pdf , page20 used on input line 728.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+File: AIreport.pdf Graphic file (type pdf)
+<use AIreport.pdf, page 20>
+Package pdftex.def Info: AIreport.pdf , page20 used on input line 728.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+[45 <./AIreport.pdf>] 
 enddocument/afterlastpage: lastpage setting LastPage.
 (./2102199.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `2102199.out' has not changed.
-(rerunfilecheck)             Checksum: 2BC57168346C80FE0889B94F88F8D526;5674.
+(rerunfilecheck)             Checksum: 86CF42D8EA44276EC018B6EDBDF24AD5;6048.
  ) 
 Here is how much of TeX's memory you used:
- 18961 strings out of 476025
- 303567 string characters out of 5792518
- 1868382 words of memory out of 5000000
- 38930 multiletter control sequences out of 15000+600000
+ 18996 strings out of 476025
+ 304623 string characters out of 5792518
+ 1871382 words of memory out of 5000000
+ 38949 multiletter control sequences out of 15000+600000
  542700 words of font info for 90 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 78i,17n,81p,1447b,605s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 78i,17n,81p,1449b,581s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/D/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/D
 /texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb><c:/D/texlive
 /2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/D/texlive/2023/t
@@ -1139,10 +1432,10 @@ t/fonts/type1/urw/palatino/uplb8a.pfb><c:/D/texlive/2023/texmf-dist/fonts/type1
 /urw/palatino/uplbi8a.pfb><c:/D/texlive/2023/texmf-dist/fonts/type1/urw/palatin
 o/uplr8a.pfb><c:/D/texlive/2023/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb
 >
-Output written on 2102199.pdf (26 pages, 2916048 bytes).
+Output written on 2102199.pdf (45 pages, 3818802 bytes).
 PDF statistics:
- 587 PDF objects out of 1000 (max. 8388607)
- 484 compressed objects within 5 object streams
- 123 named destinations out of 1000 (max. 500000)
- 343 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 753 PDF objects out of 1000 (max. 8388607)
+ 606 compressed objects within 7 object streams
+ 139 named destinations out of 1000 (max. 500000)
+ 452 words of extra memory for PDF output out of 10000 (max. 10000000)
 

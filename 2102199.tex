@@ -36,7 +36,7 @@
  \let\enditemize\endcompactitem
 
 \newcommand{\upcite}[1]{\textsuperscript{\textsuperscript{\cite{#1}}}}
-\title{Momentum Quantifier (MoQ): Proving the "Big Mo" is Real in Tennis}  % 标题
+\title{Momentum Quantifier (MoQ): Proving the "Big Mo" is Real}  % 标题
 
 % 如需要修改题头（默认为 MCM/ICM），请使用以下命令（此处修改为 MCM）
 %\renewcommand{\contest}{MCM}
@@ -47,12 +47,20 @@
 % 此处填写摘要内容
 \begin{abstract}
     
-Yes, the Big Mo ("Big Momentum") is real.
+The concept of the "Big Mo" ("Big Momentum") in competitive sports, particularly tennis, has long intrigued both enthusiasts and professionals. Often discussed in terms of a player's dominance or sudden shifts in the game's rhythm, momentum is frequently cited in spectacular matches, such as the 2023 Wimbledon Gentlemen’s final between Carlos Alcaraz and Novak Djokovic. Despite its perceptible presence, momentum has remained largely qualitative, rooted in subjective experience and lacking a systematic, mathematical framework for analysis. This paper presents the \textbf{Momentum Quantifier (MoQ)}, a mathematical model designed to bridge this gap, offering a quantitative lens through which to view and understand momentum in tennis.
+
+At the outset, it's crucial to acknowledge the complexity of momentum, which encompasses not only the physical and tactical aspects of the game but also psychological states and external conditions. Our approach to modeling momentum involves a comprehensive analysis of these factors, aiming to quantify how a player is performing relative to their opponent at any given point and to track the changes in this performance differential. To accomplish this, we employed \textbf{feature engineering}, which involves extracting and constructing variables influencing the match's flow, with a \textbf{sliding window} determining a unique set of temporal feature variables. The selection of a \textbf{Progressive Logistics Model} with forgetting factors drives the model to focus on recent play, ensuring the it remains dynamic and reflective of the match's current state. These aforementioned methods form a \textbf{CourtSense sub-model}, which predicts point outcomes using real-time match data, adjusted dynamically through the forgetting factor. The model eventually yielded an accuracy of \textbf{92.82\%}.
+
+To describe momentum concretely, we propose a \textbf{performance metric} that encapsulates the game's flow, correlating with observable factors and events. This metric serves as a cornerstone for the MoQ model, which, through high correlation with the metric, validates the existence and quantifiable nature of momentum. Central to MoQ is the innovative use of an adapted \textbf{Long Short-Term Memory (LSTM)} network, leveraging meticulously selected features—\textbf{the 4S (Scoring, Service, Stamina, Slip) factors}—to quantify momentum. These factors are derived from extensive analysis and are instrumental in capturing the nuanced dynamics of tennis matches. The model's effectiveness is evidenced by a promising \textbf{correlation analysis} result of\textbf{ 0.68 }between the performance metric and the model's outputs, highlighting its capability to capture and predict momentum shifts. Furthermore, we define a "shift in momentum" in quantitative terms, identifying key indicators that may induce these pivotal changes in the game.
+
+The MoQ model's robustness is further validated through application to an external dataset—the 2019 Australian Open Final between Novak Djokovic and Rafael Nadal. Despite differences in available features, the model demonstrates \textbf{generalizablity} and maintains performance, showing its potential for broader application in tennis and possibly other competitive sports.
+
+In summary, the MoQ model's development, from its theoretical underpinnings to empirical validation, offers a comprehensive framework for analyzing momentum, providing valuable insights for players, coaches, and analysts alike. Furthermore, its adaptability and predictive accuracy, even in the face of varied datasets, highlight the model's potential for enhancing strategic planning and performance analysis in tennis.
 
 % 美赛论文中无需注明关键字。若您一定要使用，
 % 请将以下两行的注释号 '%' 去除，以使其生效
-\vspace{5pt}  %mm	毫米	1 mm = 2.845 pt   pt 点	1 pt = 0.351 mm；此处为Keywords与Abstract正文额外相隔的距离（1.5cm）
-\textbf{Keywords}: Feature Engineering, Logistic Regression, Dynamic Model
+\vspace{15pt}  %mm	毫米	1 mm = 2.845 pt   pt 点	1 pt = 0.351 mm；此处为Keywords与Abstract正文额外相隔的距离（1.5cm）
+\textbf{Keywords}: Feature Engineering, Progressive Logistic Regression, Time-Series Analysis with LSTM, Correlation Analysis
 
 \end{abstract}
 
@@ -96,8 +104,8 @@ Momentum is often seen as a phenomenon that a player is playing exceedingly well
 
 \begin{enumerate}[\bfseries (1)]
 	\setlength{\parsep}{0ex} %段落间距
-	\setlength{\topsep}{2ex} %列表到上下文的垂直距离
-	\setlength{\itemsep}{1ex} %条目间距
+	\setlength{\topsep}{0ex} %列表到上下文的垂直距离
+	\setlength{\itemsep}{0ex} %条目间距
 	\item Evaluate the quantitative degree how one player is performing better than the other player at any given point in the match, and illustrate the changes of such performance difference in visual representation.
 	\item Based on extensive factors, including the flow of match, the model should quantify the concept of "momentum" in tennis matches, and identify potential indicators that could predict shifts in momentum. To address the coach’s skepticism, the model needs to be compared to a null model that assumes outcomes are random (e.g., based on point-by-point win probabilities without momentum).
 	\item Finally, the developed "momentum" model should be tested on other matches from the different matches, including women's matches, to exhibit its predictive accuracy and generalizability, and identify any limitations or additional factors that may need to be incorporated. 
@@ -106,11 +114,11 @@ Momentum is often seen as a phenomenon that a player is playing exceedingly well
 \subsection{Capturing the Flow of Match}
 To compare the performance ratings between the two players, we can use the data provided in \textit{Wimbledon\_featured\_matches.csv} that describe the explicit match information, such as whether a player was serving or at a break point, etc. (shown in Figure 2); but we also need to consider other implicit information that has significant impact on the state of the match, for example, whether a player has a high scoring streak. Other unimportant information, potentially the speed of the serve, needs to be neglected to ensure model's simplicity and robustness. This inherently requires \textbf{feature engineering}: to extract and construct feature variables that capture both explicit and implicit aspects that control the flow of the match.
 
-Since our model aims to dynamically assess the match's state as it evolves, it requires a granular focus on the state of the game, taking into account both minor and major developments. For example, the player may have a lead in games won, but when the other player just scored a break point, that player could be performing much better at that specific time. Therefore, to scope the data to recently played points, the \textbf{sliding window} technique can be employed; to handle older scores and progressively update the model as the match goes on, introduction of a \textbf{forgetting factor} would be applicable, as illustrated in Figure 3. The remaining work would be finding an appropriate model to map these parameters to the performance or the winning probability of a player. 
+Since our model aims to dynamically assess the match's state as it evolves, it requires a granular focus on the state of the game, taking into account both minor and major developments. For example, the player may have a lead in games won, but when the other player just scored a break point, that player could be performing much better at that specific time. Therefore, to scope the data to recently played points, the \textbf{sliding window} technique can be employed; to handle older scores and progressively update the model as the match goes on, the introduction of a \textbf{forgetting factor} would be applicable, as illustrated in Figure 3. The remaining work would be finding an appropriate model to map these parameters to the performance or the winning probability of a player. 
 
 \begin{figure}[htbp]  %h此处，t页顶，b页底，p独立一页，浮动体出现的位置
 	\centering  %图表居中
-	\includegraphics[width=.85\textwidth]{sliding-window.png} %图片的名称或者路径之中有空格会出问题 
+	\includegraphics[width=.76\textwidth]{sliding-window.png} %图片的名称或者路径之中有空格会出问题 
 	\caption{\centering Information Is Constrained by Sliding Window and Forgetting Factor. (Note that the data in this graph is for understanding the process.)} % 图片标题 
 \end{figure}
 
@@ -119,11 +127,11 @@ To build an effective model that can analyze the player's momentum, we must firs
 
 \textit{However}, no matter how you would argue, "momentum" stays an elusive and subjective concept and largely a psychological state \cite{-1}; therefore, it is extremely hard to use an completely accurate numerical measurement for it, especially when we do not have available psychological data for these matches. With no measurement method, it is impossible to build a mathematical framework that could analyze the factors affecting the momentum, let alone predicting shifts in momentum as the match is being played. Worse yet, the momentum effect in tennis is highly controversial itself and is influenced by a complex interplay of factors, some measurable and some intangible.
 
-Nonetheless, we argue that there is still a possible way to measure and model momentum. For example, in the final match of Wimbledon 2023, from when Djokovic won the first set with a dominating 6 to 1, to when Alcaraz took control in the third set with a same score but reversed for him, we can confidently say that there had been a shift in momentum. Therefore, while there is no established measurement of momentum, we can define a standard that momentum manifest itself in. In other words, we first designate a performance \textit{metric} that reflects momentum, such as the changes in scoring patterns, and then analyze how changes in this metric correlate with other observable factors and events during a match. This approach allows us to use quantitative data to infer the presence and impact of momentum, even if we cannot measure it directly. This process described in detail in the Figure :
+Nonetheless, we argue that there is still a possible way to measure and model momentum. For example, in the final match of Wimbledon 2023, from when Djokovic won the first set with a dominating 6 to 1, to when Alcaraz took control in the third set with a same score but reversed for him, we can confidently say that there had been a shift in momentum. Therefore, while there is no established measurement of momentum, we can define a standard that momentum manifest itself in. In other words, we first designate a performance \textit{metric} that reflects momentum, such as the changes in scoring patterns, and then analyze how changes in this metric correlate with other observable factors and events during a match. This approach allows us to use quantitative data to infer the presence and impact of momentum, even if we cannot measure it directly. This process described in detail in the Figure 4:
 
 \begin{figure}[htbp]  %h此处，t页顶，b页底，p独立一页，浮动体出现的位置
 	\centering  %图表居中
-	\includegraphics[width=\textwidth]{momentum-model.png} %图片的名称或者路径之中有空格会出问题 
+	\includegraphics[width=0.8\textwidth]{momentum-model.png} %图片的名称或者路径之中有空格会出问题 
 	\caption{\centering Process of Modeling Momentum} % 图片标题 
 \end{figure}
 
@@ -132,21 +140,21 @@ As described in the figure, if the correlation between the built momentum model 
 If this method proves feasible in quantifying momentum, then other problems, such as predicting momentum shifts and utilizing the model to predict other matches, can be a straightforward process. If not, we will also identify the problems with our model and set a foundation for improving the model.
 
 \subsection{Our Work}
-It is our belief that a practical and inclusive mathematical framework to model the concept momentum would greatly help the tennis community in understanding the concept of momentum to improve performance, strategy, and training methodologies. In this paper, we seek to address this challenge using a set of match data from Wimbledon 2023 Men's Matches. Through extensive investigation in the field of tennis and thorough exploration, our main model - the \textbf{Momentum Quantifier (MoQ)}, integrates a comprehensive set of features and use a variety of statistical methods to achieve this goal. The building of this model can be overall described as follows:
+It is our belief that a practical and inclusive mathematical framework to model the concept momentum would greatly help the tennis community in understanding the concept of momentum to improve performance, strategy, and training methodologies. In this paper, we seek to address this challenge using a set of match data from Wimbledon 2023 Men's Matches. Through extensive investigation in the field of tennis and thorough exploration, our main model - the \textbf{Momentum Quantifier (MoQ)} is built, which integrates a comprehensive set of useful features and use a variety of statistical methods to achieve this goal. The building of this model can be seen in Figure 5, or described as follows:
 \begin{enumerate}[\bfseries (1)]
 	\setlength{\parsep}{0ex} %段落间距
-	\setlength{\topsep}{2ex} %列表到上下文的垂直距离
-	\setlength{\itemsep}{1ex} %条目间距
-	\item To capture the flow of match in real-time, we constructed the CourtSense model as a sub-model of DTMA. The model starts by applying a Sliding Window machanism to a set of extracted features; these features are passed into the core Progressive Logisic Model that use the set of principal factors to predict the winning chance of the point; due to the real-time progression of the competition, a Forgetting Factor is added to dynamically update this model to reflect the most recent match status. 
-	\item The mixture of the two drones is given and the extreme fire events is considered;
-	\item Based on the verification model simulated by Poisson process and the hovering model based on Tabu Search, this article effectively demonstrates the validity and applicability.
+	\setlength{\topsep}{0ex} %列表到上下文的垂直距离
+	\setlength{\itemsep}{0ex} %条目间距
+	\item To capture the flow of match in real-time, we constructed the CourtSense model as a sub-model of MoQ. The model starts by applying a Sliding Window machanism to a set of extracted features; these features are passed into the core Progressive Logisic Model to predict the winning chance of the point; due to the real-time progression of the competition, a Forgetting Factor is added to dynamically update this model to reflect the most recent match status. 
+	\item To quantify the concept of momentum, we designated a performance metric that can better reflect the flow of momentum, and use this metric to guide the Momentum Quantifier (MoQ)'s learning. At the heart of MoQ is an adapted LSTM model that uses a meticulously selected momentum factors - the 4S factors.
+	\item To verify the model's effectiveness at capturing momentum, we do a correlation analysis between the performance metric and the model's result, and obtained a promising result. We also defined what a "shift in momentum" means and found out which factors are has the most potential in causing such momentum shifts. Finally, the MoQ undergoes a set of optimization, exhibiting its generalizability, adaptibility, and future directions.
 \end{enumerate}
-In order to avoid complicated description, intuitively reflect our work process, the flow chart is shown in Figure 3:
+
 
 \begin{figure}[htbp]  %h此处，t页顶，b页底，p独立一页，浮动体出现的位置
 	\centering  %图表居中
-	\includegraphics[width=.9\textwidth]{Flow_Chart.png} %图片的名称或者路径之中有空格会出问题 
-	\caption{Flow Chart of Our Work} % 图片标题 
+	\includegraphics[width=.8\textwidth]{work.png} %图片的名称或者路径之中有空格会出问题 
+	\caption{Journey Map of Our Work} % 图片标题 
 \end{figure}
 \vspace{-0.8cm}
 
@@ -154,22 +162,20 @@ In order to avoid complicated description, intuitively reflect our work process,
 % 2. Assumptions 
 
 \section{Model Preliminaries}
-Considering that practical problems always contain many complex factors, first of all, we need to make reasonable assumptions to simplify the model, and each hypothesis is closely followed by its corresponding explanation:
+Considering that practical problems always contain many complex factors, first of all, we need to make reasonable assumptions to simplify the model, and each assumption is closely followed by the corresponding explanation:
 
 \subsection{Assumptions}
 \begin{enumerate}[\bfseries \textit{Assumption} 1:]
-	\item \textbf{Only the influence of terrain on the drone is considered, and other factors such as temperature, humidity, and atmosphere are ignored.}\\
-	\textbf{\textit{Explanation: }}The UAV's radiation communication range is only affected by terrain factors, and other factors are minimal. In fact, these factors affect each other, but in order to simplify the model ,we ignore the interactions between these factors.
-	\item \textbf{The location of the EOC can be deployed around the fire due to an emergency.}\\
-	\textbf{\textit{Explanation: }}The position of the EOC is not clearly given in the question. So, we assume that EOC can be set in a fire-free area around the wildfire site, since the glossary of the problem said that mobile EOC can be deployed near the site of an emergency.
-	\item \textbf{The "boots-on-the-ground" forward teams can be approximated as near the fire site.}\\
-	\textbf{\textit{Explanation: }}The actual movement of the team is very complicated, and it is difficult to accurately calculate its position. Therefore, it is assumed that the squad is near the fire field and the drone arrives at the fire field to establish a connection with the squad.
-	\item \textbf{The collected data can be considered reliable and can reflect the changing laws of the Victorian wildfire.}\\
-	\textbf{\textit{Explanation: }}The historical Victorian wildfire data, latitude, longitude and other data come from authoritative websites, such as the official website of FEC in Australia and NASA, with high accuracy.
+	\item \textbf{Momentum is largely a subjective experience and there is no accurate way to measure it.}\\
+	\textbf{\textit{Explanation: }}Momentum, especially in tennis, is a concept based subjectivity; for example, the psychological state of the players and the intangible atmosphere of the competition.
+	\item \textbf{Momentum can be reflected in scoring patterns of the tennis player.}\\
+	\textbf{\textit{Explanation: }}The concept of momentum in a tennis match is not merely abstract or psychological but has tangible manifestations in the scoring patterns observed during the game. This assumption is crucial for building a mathematical model for momentum.
+	\item \textbf{Momentum is a universal experience in competitive environment.}\\
+	\textbf{\textit{Explanation: }}We assume momentum is not an exclusive concept in tennis, and the analysis of momentum in other fields like basketball or table tennis can be investigated and hence, referenced.
+	\item \textbf{The errors, if any, in the \textit{Wimbledon\_featured\_matches.csv} are ignored.}\\
+	\textbf{\textit{Explanation: }}After a inspection on the dataset, we initially found logical errors and missing values. Thus, we treat this dataset as fully credential. 
 \end{enumerate}
-Additional assumptions are made to simplify analysis for individual sections. These assumptions will be discussed at the appropriate locations.
-
-
+*Additional assumptions made in individual sections to simplify analysis. 
 
 
 % 3. Notation
@@ -183,21 +189,21 @@ Some important mathematical notations used in this paper are listed in Table 1.
 \toprule[2pt]
 \multicolumn{1}{m{3cm}}{\centering Symbol} & \multicolumn{1}{m{8cm}}{\centering Description }\\
 \midrule
-$x_i$ & Longitude within the i-th Wildfire Grid \\
-$y_i$ & Latitude within the i-th Wildfire Grid \\
-$\varOmega _i$ & The area of the i-th grid\\
-$d_{ki}$ & the distance $d_{ki}$ between the k-th roaming grid and the i-th grid \\
-$SC_k$ & Score for evaluating the k-th wildfire grid \\
+$t$ & a specific timestep, corresponding to a point being played \\
+$F^{(t)}$ & the feature set selected for the CourtSense Model at timestep t \\
+$x^{(t)}$ & the input vector for logistic regression at timestep t \\
+$M^{(t)}$ & the performance metric at timestep t \\
+$s^{(t)}$ & the 4S factors as LSTM model input at timetep t \\
 \vspace{5pt}%公式间有点挤，空一些
-$x^{( \alpha )}_{ki}$ & the $SSA_\alpha$ drone sent by the k-th EOC to the i-th wild-fire grid\\
-\vspace{3pt}
-$x^{( \beta )}_{ki}$ & the $RR_\beta$ drone sent by the k-th EOC to the i-th wildfire grid\\
-$t_{fly}^{\delta}$ & The flight time of drones\\
+$\Delta M^{(t)}$ & the difference between $M^{(t)}$ and $M^{(t-1)}$ \\
+\vspace{2pt}
+$M_\text{shift}$ & the threshold $\Delta M^{(t)}$ must reach to identify a momentum shift\\
+$\sigma_{\Delta M}$ & The standard deviation of $\Delta M$\\
 \bottomrule[2pt]
 \end{tabular}\label{tb:notation}
  \begin{tablenotes}
         \footnotesize
-        \item[*] *There are some variables that are not listed here and will be discussed in detail in each section. %此处加入注释*信息
+        \item[*] *Additional variables that not listed here will be discussed in detail in their corresponding section. %此处加入注释*信息
       \end{tablenotes}
 \end{center}
 \end{table}
@@ -283,7 +289,7 @@ represents the sum of temporal features of last 3 points played, and \( F_{nt} \
 So far, we have acquired a granular and exhaustive set features that completely describe the match's status at a specific point and is ready to be fed into our Progressive Logistic Model - the core of the CourtSense model.
 
 \subsection{Progressive Logistic Model}
-To effectively capture the dynamic flow of a tennis match, we introduce the Progressive Logistic Model. This model is designed to predict the outcome probability of the current point, providing a real-time assessment of the match's status and the relative performances of the players. The Progressive Logistic Model utilizes a multivariate logistic regression framework, due to its suitability for binary outcome prediction (e.g., point won or lost) and its ability to output probabilities based on multiple features; furthermore, combined with the Forgetting Factor, the model is capable of progressively updating the itself according to the latest match information as the match progresses. The general process of this model is depicted in Figure 3. 
+To effectively capture the dynamic flow of a tennis match, we introduce the Progressive Logistic Model. This model is designed to predict the outcome probability of the current point, providing a real-time assessment of the match's status and the relative performances of the players. The Progressive Logistic Model utilizes a multivariate logistic regression framework, due to its suitability for binary outcome prediction (e.g., point won or lost) and its ability to output probabilities based on multiple features; furthermore, combined with the Forgetting Factor, the model is capable of progressively updating the itself according to the latest match information as the match progresses. The general process of this model is depicted in Figure 6. 
 
 \begin{figure}[htbp]  %h此处，t页顶，b页底，p独立一页，浮动体出现的位置
 	\centering  %图表居中
@@ -410,7 +416,7 @@ The fluctuations in the graph traces the ebb and flow of the match, or perhaps, 
 As discussed in the Problem Analysis section, we think that momentum is an elusive concept and cannot be measured directly; but it can be reflected by the changing patterns of score. By defining a performance metric like this, we can try to develop a model (Momentum Quantifier, MoQ) that calculates the amount of momentum based a set of anticipated factors, and if the MoQ's result has high correlation value with the metric, we are safe to say the model is effective for analyzing and quantifying momentum. 
 
 \subsection{Designating a Performance Metric}
-This brings back to the question: does the chance of winning a specific point reflect the momentum? While the granular details of every point matter, we think that momentum is more about the \textit{broader strokes} of the match — the ebb and flow felt over games and sets. So although predicting each point's outcome can be influential, we also need to consider \textbf{a suitable scope of} score that can reflect the volume of momentum. Under this scope, we calculate gained-score differences. For example, during the the 5th set between Alcaraz and Djokovic, their difference between their gained points in a scope of 12 points, are depicted as below in Figure: 
+This brings back to the question: does the chance of winning a specific point reflect the momentum? While the granular details of every point matter, we think that momentum is more about the \textit{broader strokes} of the match — the ebb and flow felt over games and sets. So although predicting each point's outcome can be influential, we also need to consider \textbf{a suitable scope of} score that can reflect the volume of momentum. Under this scope, we calculate gained-score differences. For example, during the 5th set between Alcaraz and Djokovic, their difference between their gained points in a scope of 12 points, are depicted as below in Figure 10: 
 
 \begin{figure}[htbp]  %h此处，t页顶，b页底，p独立一页，浮动体出现的位置
 	\centering  %图表居中
@@ -419,7 +425,7 @@ This brings back to the question: does the chance of winning a specific point re
 \end{figure}
 \vspace{-0.2cm}
 
-We can clearly see that at the middle point in the match, Djokovic has a significant edge over Alcaraz at first, before Alcaraz taking back the momentum and chased the points back by winning 10 points in the last 12 points. The actual flow of momentum, as we watched the match from \cite{7} and inferred from the live atmosphere, is quite similar with the flow of this graph. This means this the scoped gained-score difference is indeed a performance metric good at reflecting momentum.
+We can clearly see that at the middle point in the match, Djokovic has a significant edge over Alcaraz at first, before Alcaraz taking back the momentum and chased the points back by winning 10 points in the last 12 points. The actual flow of momentum, as we watched the match from \cite{7} and inferred from the live atmosphere, is quite similar to the flow of this graph. This means this the scoped gained-score difference is indeed a performance metric good at reflecting momentum.
 
 We designated our performance metric as the following. Denote the set of points won by player \( A \) in a given scope as \( P_A \), and \( P_B \) for player \( B \), with the scope defined as the last \( N \) points played. The performance metric, \( M \), for player \( A \) over player \( B \) in this scope can then be defined as:
 \[
@@ -427,7 +433,7 @@ M=\sum_{i=1}^{N}(P_{A}^i-P_{B}^i)
 \]
 where \( P_{A_i} \) and \( P_{B_i} \) are binary indicators of whether player \( A \) or \( B \) won the \( i^{th} \) point in the scope, respectively. Specifically, \( P_{A_i} = 1 \) if player \( A \) won the \( i^{th} \) point, and 0 otherwise; similarly for \( P_{B_i} \). After careful consideration and collection, we eventually chose a value of 12 for the scope $N$.
 
-However, there is some nuance here. As discussed, our goal is to build a momentum model that incorporates some important factors at a \textit{specific point} to measure its momentum. Apparently, the gained-score difference within the scope N is an \textit{average} performance difference in that scope, not indicator of momentum of any specific point. For instance, if we look at the highest point in Figure , it means Alcaraz took the 8 points of the 12 points before the play of this point. This difference only signals he has played well in the last 12 points in general, not an performance indicator of the current point; and as we can see, this difference dropped sharply after this point, signaling the momentum is shifting towards his opponent at this point.
+However, there is some nuance here. As discussed, our goal is to build a momentum model that incorporates some important factors at a \textit{specific point} to measure its momentum. Apparently, the gained-score difference within the scope N is an \textit{average} performance difference in that scope, not indicator of momentum of any specific point. For instance, if we look at the highest point in Figure 10, it means Alcaraz took the 10 points of the 12 points \textbf{before} the play of this point. This difference only signals he has played well in the last 12 points in general, not a performance indicator of the current point; and as we can see, this difference dropped sharply after this point, signaling the momentum is shifting towards his opponent at this point.
 
 Reviewing our problem, we eventually aim to predict shifts in momentum as the match progresses. Therefore, when training our model, it would be rational to use the N points \textit{after} the point of concern rather than \textit{before} that point; in this way, the model is able to \textit{predict} the average momentum after that point. This choice is made after we found that, the model trained using scoped gained-score difference before that point achieved little correlation with this metric. Finally, the performance metric of point $t$ in the match is defined as:
 \[
@@ -456,7 +462,7 @@ In this part, we describe the main model structure used in our MoQ model. Now th
 where each element in series $S$ is a value such that $s^{(t)}={f(x_1^{(t)}, x_2^{(t)}, ..., x_m^{(t)})}$, with $x_1^{(t)}, x_2^{(t)}, ..., x_m^{(t)}$ being our 4S factors, the function $f$ defined by a specific model. Also, note the model's goal of forecast shifts in momentum. In this scenario, we think of using \textbf{multivariate time series} models in the field of machine learning \cite{10}. Finally, we choose the Long-Term Short Memory Recurrent Neural Network (LSTM), considering this model's capability of to handle multivariate series data \cite{11}.
 \subsubsection{LSTM Structure}
 
-The LSTM unit comprises three primary \textbf{gates}: the input gate, the forget gate, and the output gate, alongside two \textbf{states}: the cell state and the hidden state. To explain what these mean, imagine LSTM as a kind of smart agent that watches a sequence of events (momentum changes in a tennis match in our case) unfold over time. This agent has a special notebook (\textbf{the cell state}) where it can jot down important information to remember and also erase things that are no longer relevant. Alongside, it has a certain level of focus or attention (\textbf{the hidden state}) that it adjusts based on the latest events and what it has decided to keep in its notebook. These decisions are made by three specialized mechanisms, often referred to as gates. \textbf{The Forget Gate} decides what from its notebook is no longer useful and can be erased. It looks at the new information and the current state of focus and decides what memories to let go of. \textbf{The Input Gate} helps the agent decide which of the \textit{new} information is important enough to note down in its notebook. After updating its notebook and deciding what to focus on, \textbf{the Output Gate} uses this gate to determine what it should pay attention to now. This is based on its updated notebook and the new information, guiding its current state of focus or attention. This process is illustrated in Figure .
+The LSTM unit comprises three primary \textbf{gates}: the input gate, the forget gate, and the output gate, alongside two \textbf{states}: the cell state and the hidden state. To explain what these mean, imagine LSTM as a kind of smart agent that watches a sequence of events (momentum changes in a tennis match in our case) unfold over time. This agent has a special notebook (\textbf{the cell state}) where it can jot down important information to remember and also erase things that are no longer relevant. Alongside, it has a certain level of focus or attention (\textbf{the hidden state}) that it adjusts based on the latest events and what it has decided to keep in its notebook. These decisions are made by three specialized mechanisms, often referred to as gates. \textbf{The Forget Gate} decides what from its notebook is no longer useful and can be erased. It looks at the new information and the current state of focus and decides what memories to let go of. \textbf{The Input Gate} helps the agent decide which of the \textit{new} information is important enough to note down in its notebook. After updating its notebook and deciding what to focus on, \textbf{the Output Gate} uses this gate to determine what it should pay attention to now. This is based on its updated notebook and the new information, guiding its current state of focus or attention. This process is illustrated in Figure 11.
 
 \begin{figure}[htbp]  %h此处，t页顶，b页底，p独立一页，浮动体出现的位置
 	\centering  %图表居中
@@ -465,7 +471,7 @@ The LSTM unit comprises three primary \textbf{gates}: the input gate, the forget
 \end{figure}
 \vspace{-0.2cm}
 
-In our MoQ model, we succesfully integrated the 4S factors (Scoring, Service, Stamina, Slip) with the LSTM's structure. Each point in a match is represented as a multi-dimensional vector, where each dimension corresponds to one of the 4S factors. These vectors form a time series, serving as the input to the LSTM model:
+In our MoQ model, we successfully integrated the 4S factors (Scoring, Service, Stamina, Slip) with the LSTM's structure. Each point in a match is represented as a multi-dimensional vector, where each dimension corresponds to one of the 4S factors. These vectors form a time series, serving as the input to the LSTM model:
 
 \[ S = \{s^{(1)}, s^{(2)}, ..., s^{(n)}\} \]
 
@@ -504,10 +510,10 @@ So far we have thoroughly described the model structure and training process of 
 
 
 \section{Experiment}
-In this section, we provide an validation of the MoQ model, testing its accuracy and provide a correlation analysis to show the model's capability to quantify momentum; moreover, we use the result of the model to predict flow of momentum, and see what can lead to the change on flow of play. 
+In this section, we provide a validation of the MoQ model, testing its accuracy and provide a correlation analysis to show the model's capability to quantify momentum; moreover, we use the result of the model to predict flow of momentum, and see what can lead to the change in flow of play. 
 
 \subsection{Model's Result on Quantifying Momentum}
-The testing of MoQ involves predicting all 322 points (excluding the first 12 points) for the Wimbledon 2023 Men's Final, on Carlos Alcaraz (Player 1). We compared the LSTM's prediction results of momentum, to the actual performance metric that we designated. The result is illustrated in Figure .
+The testing of MoQ involves predicting all 322 points (excluding the first 12 points) for the Wimbledon 2023 Men's Final, on Carlos Alcaraz (Player 1). We compared the LSTM's prediction results of momentum, to the actual performance metric that we designated. The result is illustrated in Figure 12.
 
 \begin{figure}[htbp]  %h此处，t页顶，b页底，p独立一页，浮动体出现的位置
 	\centering  %图表居中
@@ -516,7 +522,7 @@ The testing of MoQ involves predicting all 322 points (excluding the first 12 po
 \end{figure}
 \vspace{-0.2cm}
 
-From the graph, we can judge that the model has a good predictive power on capturing when there's a significant shift of momentum, for example, the "Relatively Good Prediction" areas marked by the dashed lines. The model is mostly right in capturing the swings in momentum, although the momentum's volume between the prediction and actual is still large, as depicted in the figure. This could either due to the limitation of time-series analysis for being bad at predicting extreme values \cite{14}, or the unpredictability nature of momentum.
+From the graph, we can judge that the model has a good predictive power of capturing when there's a significant shift of momentum, for example, the "Relatively Good Prediction" areas marked by the dashed lines. The model is mostly right in capturing the swings in momentum, although the momentum's volume between the prediction and actual is still large, as depicted in the figure. This could either due to the limitation of time-series analysis for being bad at predicting extreme values \cite{14}, or the unpredictability nature of momentum.
 
 As mentioned in problem analysis, to measure whether this model is effective at predicting momentum, we have to conduct a correlation analysis between the performance metric and the predicted momentum value. The Pearson correlation coefficient, denoted as \( r \), providing a measure of the linear correlation between these two sets of data.
 
@@ -526,10 +532,10 @@ The Pearson correlation coefficient is defined as:
 where \( s^{(t)} \) i is predicted momentum values at point \( t \), \( M^{(t)} \) represents the actual momentum metrics at point \( t \), \( \bar{s} \) and \( \bar{M} \) are the means of the predicted values and actual metrics, respectively, and \( n \) is the total number of points analyzed (322). After calculation, we found that the correlation between the performance metric and the result of the momentum model is exceptionally high: $\mathbf{0.68}$. This is out of our expectation because this means our model aligns well with the observable changes in the performance metric, meaning it has been successful at modeling momentum to some level, only using the limited data provided by the original problem! Most importantly, it indicates momentum can be a \textit{real thing} that affects the ebb and flow of the match!
 
 \subsection{Are Shifts in Momentum Random?}
-Now that we have a model that quantifies momentum, is there any indicator in the match that can predict a shift of momentum? To answer this this question, we have to first understand what is "a shift of momentum". Since our model is trained on using the average momentum of the 12 points after the predicting point, if at this point the value is significantly different than the last point's value, we can say that this point could potentially cause a shift of momentum and it will be reflected in the subsequent 12 points. Specifically, we can define a shift of momentum at point \( t \) if the absolute difference in the momentum values between point \( t \) and the previous point \( t-1 \) exceeds a certain threshold \( M_{\text{shift}} \). This can be expressed as:
+Now that we have a model that quantifies momentum, is there any indicator in the match that can predict a shift of momentum? To answer this question, we have to first understand what is "a shift of momentum". Since our model is trained on using the average momentum of the 12 points after the predicting point, if at this point the value is significantly different than the last point's value, we can say that this point could potentially cause a shift of momentum and it will be reflected in the subsequent 12 points. Specifically, we can define a shift of momentum at point \( t \) if the absolute difference in the momentum values between point \( t \) and the previous point \( t-1 \) exceeds a certain threshold \( M_{\text{shift}} \). This can be expressed as:
 
 \[ \Delta M^{(t)} = | M^{(t)} - M^{(t-1)} | > M_{\text{shift}} \]
-where \( M^{(t)} \) is the calculated momentum value using MoQ at point \( t \), \( M^{(t-1)} \) is the momentum value at point \( t-1 \), \( M_{\text{shift}} \) is a predefined threshold that quantifies what constitutes a "significant" change in momentum. The choice of \( M_{\text{shift}} \) is important, which must be large enough to filter out minor fluctuations that are normal. Figure showed a distribution of $\Delta M$:
+where \( M^{(t)} \) is the calculated momentum value using MoQ at point \( t \), \( M^{(t-1)} \) is the momentum value at point \( t-1 \), \( M_{\text{shift}} \) is a predefined threshold that quantifies what constitutes a "significant" change in momentum. The choice of \( M_{\text{shift}} \) is important, which must be large enough to filter out minor fluctuations that are normal. Figure 13 showed a distribution of $\Delta M$:
 
  \begin{figure}[htbp]  %h此处，t页顶，b页底，p独立一页，浮动体出现的位置
  	\centering  %图表居中
@@ -544,14 +550,14 @@ where \( M_{\text{shift}} \) is the threshold for defining a significant shift i
 
 By applying this method to the whole dataset, we calculated $M_{\text{shift}} = 1.25698$, and accounted for a total of 694 points. This means when using our MoQ model to predict momentum, if the change of momentum $\Delta M^{(t)}$ at a timestep $t$ is larger than $1.25698$, a swing in the match might be happening.
 
-Finally, using this 694 points, we try to filter the most important factors from the 4S factor that can cause a shift in momentum. This is done by using the correlation analysis, as defined in (), between the value of momentum change $\Delta M$ and the value of each of these factors in the 4S factors set. The result is described in the Figure .
+Finally, using this 694 points, we try to filter the most important factors from the 4S factor that can cause a shift in momentum. This is done by using the correlation analysis, as defined in (), between the value of momentum change $\Delta M$ and the value of each of these factors in the 4S factors set. The result is described in the Figure 14.
 
 We can interpret this result as the following: 
 \begin{itemize}
 	    \setlength{\parsep}{0ex} %段落间距
 	\setlength{\topsep}{0ex} %列表到上下文的垂直距离
 	\setlength{\itemsep}{0ex} %条目间距
-	\item For the scoring factor, there is a strong positive correlation of 0.72, indicating the prediction results of our CourtSense model is moderately related to shifts in momentum. In other words, winning the current point is can be associated with a shift in momentum, but not every point winning leads to a momentum shift.
+	\item For the scoring factor, there is a positive correlation of 0.42, indicating the prediction results of our CourtSense model is moderately related to shifts in momentum. In other words, winning the current point is can be associated with a shift in momentum, but not every point winning leads to a momentum shift.
 	\item The service factor has a moderate positive correlation of 0.49 with shifts in momentum. This suggests that factors related to service are moderately associated with momentum shifts. Specifically, aces having a correlation of 0.20 with momentum shifts, meaning scoring an ace has a little chance to cause a momentum shift.
 	\item The stamina factor in total can have a good correlation with the shifts in momentum, but for individual factors, only the dist\_run (the total distance covered when playing that point) and rally count shows a weak negative correlation with the momentum shifts. This could be due to the fatigue during the match; hence we encourage the tennis coaches to focus on some amount of stamina training.
 	\item The slip factor is pretty important in influencing the match's flow. We can see unforced errors have a moderate negative correlation of -0.42 with momentum shifts. Although not quite indicative of the player's performance, making unforced errors may be able to cause a psychological effect. Therefore, make sure to avoid unforced errors during the play of tennis.
@@ -566,57 +572,91 @@ Nonetheless, we cannot find a very important factor in the 4S factors correlatio
 \end{figure}
 \vspace{-0.2cm}
 
-\subsection{On other matches: Generalizability Test}
 
-Judging from the map of Victoria in Figure 4 (right), the eastern region is mainly forest, while the western region is almost no forest. Furthermore, to demonstrate better the situa-tion of wildfires, we plot over a heat map in Figure 4 (left).
-Considering the heat map we made, it shows the number of wildfires in various states of Victoria from 2012 to 2021, the darker the color, the greater number of fires. Although fires have also occurred in the western region, the number of eastern regions is much higher than that in the western region. 
-
-\begin{figure}[htbp]
-    \centering    
-    \subfigure[Data Screening(left)]{				% 图片1([]内为子图标题)						
-    \includegraphics[width=0.45\textwidth]{Data_Screening(1).png}}			  % 子图1的图片宽度 不能空行
-    \subfigure[Data Screening(right)]{				% 图片2
-    \includegraphics[width=0.45\textwidth]{Data_Screening(2).png}}
-	\caption{Data Screening} % 图片标题 
-\end{figure}
-
-\begin{algorithm}
-	\caption{BLAH BLAH BLAH}
-	\begin{algorithmic}[1] % The [1] option enables line numbering
-		\REQUIRE wordlist, gameround, v, r, f
-		\ENSURE bestguess
-		\STATE $pguesses \gets []$
-		\STATE $freq \gets modfreq(wordlist)$
-		\FOR{$i \gets 1$ \TO $length(wordlist)$}
-		\STATE $w \gets weightings(wordlist[i], freq, v, r, f)$
-		\STATE $pguesses.append([w, wordlist[i]])$
-		\ENDFOR
-		\STATE $pguesses.sort(reverse = True)$
-		\RETURN $pguesses[0][1]$
-	\end{algorithmic}
-\end{algorithm}
-
+\subsection{An endeavor to further improve MoQ}
+As mentioned, the model excels at capturing the flow of momentum, but the specific value between the prediction and actual is still not very good. Analyzing from Figure 12, we can tell this is especially true for extreme points. If the extreme points exhibit unique or complex patterns that deviate significantly from other data, the performance of our model is limited. Table 4 shows the points of most extreme differences between predicted and actual momentum value across the whole dataset.
 
 \begin{table}[htbp]
-	\begin{center}
-		\caption{Data and Database Websites}
-		\resizebox{\textwidth}{!}
-		{\begin{tabular}{c c}
-				\toprule[2pt]
-				\multicolumn{1}{m{5cm}}{\centering \textbf{Database Names}}
-				&\multicolumn{1}{m{10cm}}{\centering \textbf{Database Websites} }\\ %m后面是列宽
-				\midrule
-				Fire Alerts& https://www.globalforestwatch.org/map/ \\
-				Altitude & https://search.earthdata.nasa.gov/search \\
-				Latitude and Longitude & https://www.kaggle.com/carlosparadis/\\ 
-				Google Scholar & https://scholar.google.com/ \\
-				Maps& \copyright{} 2021 Mapbox \copyright{} OpenStreetMap\\
-				\bottomrule[2pt]
-		\end{tabular}}
-	\end{center}
+	\centering
+	\caption{Deviation of Predicted Momentum at Extreme Values}
+	\resizebox{0.35\textwidth}{!}{% Ensure this scales the table appropriately
+		\begin{tabular}{cc} % You can use 'c' alignment since you're centering all cells
+			\toprule[2pt]
+			\multicolumn{1}{m{2cm}}{\centering \textbf{Actual}} &
+			\multicolumn{1}{m{3cm}}{\centering \textbf{Predicted}} \\
+			\midrule
+			12 & 1.574508666  \\
+			12 & 1.381220818 \\
+			-10 & -0.544439316 \\
+			-10 & -1.485133172 \\
+			-10 & -0.986423492 \\
+			\bottomrule[2pt]
+		\end{tabular}
+	}
 \end{table}
 
+We hope to incorporate more factors into the model to diminish this effect. We investigated a broader scale of studies and papers \cite{17}\cite{18} on the factors that affect the performance of athletes in competitions, not just tennis, and obtained the following conclusions.
 
+First, it was found that there is no correlation between competition ranking and the actual performance, but a significant correlation between competitive strength (a specific metric for athlete's ability) and actual performance. Second, in multiple rounds of competition, it was found that different rounds have a significant impact on the performance of athletes. For example, there will be significant differences in the number of aces and double errors of athletes in the 1/16, 1/8, 1/4, and final rounds, for example, this table below showed the average number of aces in a match for different rounds:
+
+\begin{table}[htbp]
+	\centering
+	\caption{Different Rounds can Impact Player Performance, Exampled by the Number of Aces}
+	\resizebox{0.5\textwidth}{!}{% Ensure this scales the table appropriately
+		\begin{tabular}{cc} % You can use 'c' alignment since you're centering all cells
+			\toprule[2pt]
+			\multicolumn{1}{m{4cm}}{\centering ace\_count\_average} &
+			\multicolumn{1}{m{4cm}}{\centering \textbf{Round}} \\
+			\midrule
+			$10.0625$ & 1/16\\
+			$14$ & 1/8 \\
+			$13$ & 1/4 \\
+			$9$ & Semi-Final\\
+			\bottomrule[2pt]
+		\end{tabular}
+	}
+\end{table}
+
+To further improve the accuracy of the model, we added the factor of the Round in the game into the 4S factors as an independent factor, transformed them into normalized values, and retrained the model using the same process. The result shows that adding the Round factor of the number of rounds played in the competition has improved the prediction of some extreme points, enhancing the accuracy of the model, depicted in Figure 15; however, as we noticed, this scrambled some other predictions as well.
+
+\begin{figure}[htbp]  %h此处，t页顶，b页底，p独立一页，浮动体出现的位置
+	\centering  %图表居中
+	\includegraphics[width=0.85\textwidth]{corrected.png} %图片的名称或者路径之中有空格会出问题 
+	\caption{\centering Comparison between Actual and MoQ model prediction result without \& without incorporating the Round factor, at the First Match of the 16/1 Round.} % 图片标题 
+\end{figure}
+\vspace{-0.2cm}
+
+In addition, we also focused on psychological factors while researching on data of athletes during competitive competitions. Relevant studies suggest that the performance of athletes is greatly influenced by their concentration, stress, potential energy level, psychological resilience, and emotional control on the field. At the same time, the growth and competition experiences of each athlete should be collected, and detailed analysis should be conducted based on the athlete's own technical characteristics. These aforementioned factors could serve as our model's future directions.
+
+\subsection{On other matches: Generalizability Analysis}
+It is not easy to find other match data that has a same set of features. The closest data we can obtain is the Tennis ATP dataset from Kaggle\cite{16}, which records every serve and rally between two tennis players, Novak Djokovic and Rafael Nadal, during the 2019 Australian Open Final (ATP). After analyzing the dataset, the directly extractable indicators are "server" (which side is serving) and "rally\_count". After categorizing the "reason" column in the dataset, we systematically extracted indicators such as "p1\_ace," "p1\_break\_pt\_won," and "p1\_unf\_err" for model training. Additionally, we incorporate the newly discovered factor of match rounds. In total, seven indicators are extracted.
+
+Upon re-training the MoQ model with these seven indicators, including the novel match rounds factor, the model shows an ability to adapt its predictions to the unique dynamics of this match. The result can be seen in Figure 16. As we can see from the picture, the model achieves similar performance, even with the absence of some original factors. Notably, the model is now a little more aggressive at extreme points. We conclude that the model exhibit a certain level of Generalizability and Adaptability.
+
+\begin{figure}[htbp]  %h此处，t页顶，b页底，p独立一页，浮动体出现的位置
+	\centering  %图表居中
+	\includegraphics[width=0.85\textwidth]{new.png} %图片的名称或者路径之中有空格会出问题 
+	\caption{Prediction Result of Adapted MoQ on ATP 2019 Men's Final} % 图片标题 
+\end{figure}
+\vspace{-0.2cm}
+
+\section{Strength and Weakness}
+Our Momentum Quantifier (MoQ) model excels at some aspects in the context of predicting momentum flow in tennis matches:
+
+\begin{itemize}
+	\item \textbf{Meticulous Feature Selection}: The temporal features and non-temporal features selected during the feature engineering of CourtSense greatly complemented the model's ability; the MoQ model benefits from a carefully curated set of 4S factors including the scoring factor derived from the CourtSense model. This meticulous selection process ensures our model captures and comprehensively utilize a wide array of factors influencing momentum.
+	\item \textbf{Works as Match Flows}: By incorporating a sliding window approach and a forgetting factor in the CourtSense, along with the use of Long Short-Term Memory (LSTM) networks in MoQ, the model adeptly focuses on the most relevant data points. This temporal sensitivity allows the MoQ model to adapt to the dynamic nature of momentum, capturing shifts as they occur in real-time.
+	\item \textbf{Credibility}: The underlying CourtSense model has demonstrated high predictive accuracy, with over 90\% accuracy in point outcome predictions; the MoQ model exhibits a moderate correlation score with the designated performance metric, underscoring its capability to meaningfully quantify momentum shifts in line with observed match dynamics. Credibility of the model: our CourtSense model achieved an accuracy of over 90\% in predicting the point outcome and the correlation between the performance metric and the MoQ model had a moderate correlation score.
+\end{itemize}
+
+Despite its strengths, we deeply acknowledge that the MoQ model faces certain limitations that highlight areas for potential improvement:
+\begin{itemize}
+	\item \textbf{Constrained by Data}: One of the model's primary constraints lies in the low dimensionality of the available data, which only consists of explicit match statistics. This limitation means we have to overlook the significant psychological factors and other nuanced elements that can also influence momentum, such as crowd support and and mental resilience.
+	\item \textbf{Limited Understanding of Momentum}: The model's understanding of momentum is inherently tied to the specific performance metric chosen. This design choice, while necessary for an operational model, inherently narrow the scope of momentum's manifestation, excluding other possible expressions and dimensions of this complex phenomenon.
+\end{itemize}
+
+\section{Conclusion}
+In this paper, we introduced the Dynamic Momentum Quantifier (MoQ) model, a novel approach to quantifying and understanding momentum in tennis matches. Through meticulous feature selection, incorporating advanced modeling techniques such as LSTM networks, building up a specific CourtSense model to that can predict the outcome of a point during match, and using the innovative use of a sliding window and forgetting factors, the MoQ model is a sophisticated tool for capturing the elusive concept of momentum in tennis.
 
 % F: References & Appendix
 
@@ -638,6 +678,9 @@ Considering the heat map we made, it shows the number of wildfires in various st
 	\bibitem{13} \href{https://github.com/keras-team/keras/blob/v2.15.0/keras/layers/rnn/lstm.py#L382-L891}{Github | keras/keras/layers/rnn/lstm.py at v2.15.0 · keras-team/keras}
 	\bibitem{14} \href{https://arxiv.org/pdf/2012.10763.pdf}{Han Lin Shang, Macquarie University; Ruofan Xu, Monash University, 2020. Functional time series forecasting of extreme values. arXiv:2012.10763v1}
 	\bibitem{15} \href{https://en.wikipedia.org/wiki/Shapiro%E2%80%93Wilk_test}{Wikipedia | Shapiro–Wilk test}
+	\bibitem{16} \href{https://www.kaggle.com/datasets/robseidl/tennis-atp-tour-australian-open-final-2019}{Kaggle | Tennis ATP Tour Australian Open Final 2019}
+	\bibitem{17} \href{https://kns.cnki.net/kcms2/article/abstract?v=-0THPtffOh0bQVlHVveBVTVKK1xaOhfEEwEGfcv0Ri8tdLgkqDPfzYfnNHJrYp-q0S8EWmzQPrPqy3KWqVWK-Gz-sHas1SAdT6n64JOD8XYzscwWreE7MjTzFXMPUTkQchdeqW0j10DPxHxNslquvERQIZ21ZAXiAn9DCD-5hTg=&uniplatform=NZKPT&language=CHS}{Zhu Mingquan, School of Physical Education, China University of Geosciences (Wuhan). Stability of World Excellent Men's Speed Climbing Performance}
+	\bibitem{18} \href{http://www.woc88.com/d-115024857.html}{Exploring the Characteristics and Trends of Competitive Performance in Multi round and Multi round Racing Programs (Athletics Thesis)}
 
 \end{thebibliography}
 
@@ -646,35 +689,32 @@ Considering the heat map we made, it shows the number of wildfires in various st
 \clearpage
 \pagestyle{fancy}
 \fancyhead{} % Clear all header fields
-\begin{letter}{Letter to Central Intelligence Agency}
+\begin{letter}{Memorandum}
 	\textbf{}\\
-	\textbf{To:} Recipient Name \\
-	\textbf{From:} Your Name \\
-	\textbf{Subject:} The Subject of Your Letter \\
-	\textbf{Date:} \today \\
+	\textbf{To:} Coaching Staff \\
+	\textbf{From:} Team 2412704 \\
+	\textbf{Date:} Feb 5th, 2024 \\
+	\textbf{Subject:} Insights on Momentum in Tennis Matches and Strategies for Player Preparation \\
+
 	\textbf{}
 	\begin{multicols}{2}
-	We want to develop and summarize a model to classify solution words by difficulty.We constructed an AI
-	simulating human thinking to solve problems based
-	on iterative optimization parameter finding strategy.
-	It could solve wordle about 3 times on average. We
-	trained 450 such AI and took the average number of
-	solving problems as the evaluation standard of difficulty. After that, we used k-means clustering algorithm
-	to successfully classify normal problems and difficult
-	problems, and found that normal problems generally
-	have the characteristics of high word frequency, small
-	number of non-repeating letters and so on.We also used
-	correlation analysis to assess the relationship between
-	the ai difficulty prediction and the average number
-	of problems solved by humans, which showed a significant correlation. This verifies the accuracy of our
-	model.
-	Finally, we visualized the data and found an interesting conclusion: although daily reported results decreased, the proportion of difficult patterns increased.
-	We attribute this to the presence of strong old players
-	and a reluctance to post simple reports.We also found
-	that the number of non-repeating letters also affected
-	the percentage of hard mode.
-	That’s all from our data analysis. I hope it’s helpful
-	to your game. Thanks for watching.
+	Our recent analysis using the Momentum Quantification (MoQ) model has provided valuable insights into the concept of momentum in tennis and its impact on the flow of play. This memo summarizes our findings and offers advice on preparing players to respond effectively to events that influence momentum during a match.
+	
+	The MoQ model's testing during the Wimbledon 2023 Men's Final revealed its adeptness in capturing significant momentum shifts, correlating well with observable performance changes. Notably, momentum shifts are not random but can be anticipated through certain indicators, allowing for strategic interventions.
+	
+	In our analysis of momentum shifts, unforced errors were notably detrimental, indicating that minimizing mistakes is crucial for maintaining positive momentum. Scoring emerged as a less important factor, with a moderate to low correlation between winning some point and momentum shifts. This means the immediate scoring of a point is not a clear indicator; momentum is more pronounced in the long run. Physical stamina and endurance also played roles, suggesting that players' physical preparation can impact their ability to maintain or shift momentum. Service factors like aces has probability to cause a swing as well, so training on the quality of serves would prove beneficial, too. Below is a more detailed approach:
+	
+	\textbf{Emphasize the importance of scoring and converting opportunities.} Every point won can contribute to a favorable momentum shift, making it essential to capitalize on scoring chances.
+	\textbf{Incorporate stamina and endurance training.} Preparing players for the physical demands of a match can help mitigate the impact of fatigue on momentum.
+	\textbf{Focus on minimizing unforced errors.}  Reducing mistakes is critical for maintaining momentum and can prevent giving the opponent psychological and strategic advantages.
+	\textbf{Prepare players mentally for momentum shifts.} Mental resilience and adaptability can help players navigate the highs and lows of a match, enabling them to respond effectively to changing dynamics.
+	
+	
+	
+	We have also developed a sub-model named CourtSense, which complements our main MoQ model. CourtSense is specifically designed to provide point-specific insights into player behaviors and strategies during key moments of the match, particularly those that influence momentum shifts. This model has reached a very high accuracy, therefore we suggest considering using our mathematical modeling approach to enhance the understanding of your players.
+	
+	In conclusion, the combination of MoQ and CourtSense models offers a comprehensive toolkit for analyzing and influencing momentum in tennis. Although the model still has weakness for not incorporating the psychological side of the player, we believe we have laid the groundwork for future analysis into player momentum.
+	
 	\end{multicols}
 	
 \end{letter}
